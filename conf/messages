@@ -1,0 +1,6 @@
+application.name=Bodega
+application.wine.color=Color
+application.wine.name=Name
+application.wine.year=Year
+application.wine.denomination=Denomination
+application.wine.country=Country
