@@ -1,0 +1,17 @@
+@(wine :Wine)(implicit lang: Lang)
+
+@main(Messages("wine.details", wine.name)) {
+
+    <h2>
+        @Messages("wine.details", wine.name) [ Id: @wine.id ]
+    </h2>
+
+    <dl class="dl-horizontal">
+        <dt>@Messages("wine.name"):</dt>
+        <dd>@wine.name</dd>
+        <dt>@Messages("wine.color"):</dt>
+        <dd>@wine.color</dd>
+        <dt>@Messages("wine.year"):</dt>
+        <dd>@wine.year</dd>
+    </dl>
+}

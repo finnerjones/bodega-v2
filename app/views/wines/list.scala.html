@@ -1,7 +1,8 @@
-@(wines: List[wine.Wine])(implicit lang: Lang)
+@(wines: List[Wine])(implicit lang: Lang)
 @main(Messages("application.name")) {
     <table class="wine">
         <tr>
+            <th>@Messages("application.wine.id")</th>
             <th>@Messages("application.wine.name")</th>
             <th>@Messages("application.wine.color")</th>
             <th>@Messages("application.wine.year")</th>
@@ -10,6 +11,7 @@
 
         @for(wine <- wines) {
             <tr>
+                <td>@wine.id</td>
                 <td>@wine.name</td>
                 <td>@wine.color</td>
                 <td>@wine.year</td>

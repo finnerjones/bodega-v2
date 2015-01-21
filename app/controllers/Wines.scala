@@ -1,6 +1,6 @@
 package controllers
 
-import models.wine.Wine
+import models.Wine
 import play.api.mvc.{Action, Controller}
 
 /**
@@ -13,4 +13,13 @@ object Wines extends Controller {
       Ok(views.html.wines.list(wines))
 
     }
+
+
+  def show(id: Int) = Action { implicit request =>
+    Wine.findById(id).map { wine =>
+      Ok(views.html.wines.details(wine))
+    }.getOrElse(NotFound)
+
+  }
+
 }
