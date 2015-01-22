@@ -1,4 +1,4 @@
-@(wines: List[Wine])(implicit lang: Lang)
+@(wines: List[Wine])(implicit flash: Flash, lang: Lang)
 @main(Messages("application.name")) {
     <table class="wine">
         <tr>
@@ -19,4 +19,10 @@
             </tr>
         }
     </table>
+
+    <p>
+        <a href="@controllers.routes.Wines.newWine()" class="btn">
+            <i class="icon-plus"></i>@Messages("wines.new.command")
+        </a>
+    </p>
 }

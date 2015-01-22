@@ -5,6 +5,8 @@
 # Home page
 GET     /                           controllers.Application.index
 GET     /wines                      controllers.Wines.list
+POST    /wines                      controllers.Wines.save
+GET     /wines/new                  controllers.Wines.newWine
 GET     /wines/:id                  controllers.Wines.show(id :Int)
 
 

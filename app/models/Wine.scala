@@ -40,4 +40,8 @@ object Wine {
     fwine
   }
 
+
+  def add(wine:Wine) {
+    wines = wines + wine
+  }
 }

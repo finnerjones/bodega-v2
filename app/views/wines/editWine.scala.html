@@ -1,0 +1,28 @@
+@(wineForm:Form[Wine])(implicit flash: Flash, lang: Lang)
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Messages("wines.form")) {
+
+    <h2>@Messages("wines.form")</h2>
+
+    @helper.form(action = routes.Wines.save()) {
+        <fieldset>
+            <legend>
+                @Messages("wines.details", Messages("wines.new"))
+            </legend>
+            @helper.inputText(wineForm("id"))
+            @helper.inputText(wineForm("color"))
+            @helper.inputText(wineForm("name"))
+            @helper.inputText(wineForm("year"))
+            @helper.inputText(wineForm("denomination"))
+            @helper.inputText(wineForm("country"))
+            @helper.inputText(wineForm("description"))
+            @helper.inputText(wineForm("comments"))
+        </fieldset>
+        <p>
+            <input type="submit" class="btn primary" value='@Messages("wines.new.submit")'>
+        </p>
+    }
+
+}
