@@ -35,10 +35,9 @@ object Wines extends Controller {
 
 
   def show(id: Int) = Action { implicit request =>
-    Wine.findById(id).map { wine =>
-      Ok(views.html.wines.details(wine))
-    }.getOrElse(NotFound)
-
+    println(" [show()] *****   findById for id: " + id)
+    val wine = Wine.findById(id)
+    Ok(views.html.wines.details(wine))
   }
 
   def save = Action { implicit request =>

@@ -1,7 +1,6 @@
 package models
 
-import anorm.SqlQuery
-import anorm.SQL
+import anorm.{Row, SqlQuery, SQL}
 import play.api.db.DB
 import play.api.Play.current
 
@@ -54,7 +53,7 @@ object Wine {
 
 
 
-  def findById(id: Int) = {
+  def findByIdHarcoded(id: Int) = {
     val fwine = wines.find(_.id == id)
     if (fwine.isDefined)
       System.out.println("  *****************  " + fwine.get.name)
@@ -64,7 +63,34 @@ object Wine {
   }
 
 
-  def addHardcoded(wine:Wine) {
+  def findById(id:Int):Wine =
+    DB.withConnection {
+      implicit connection =>
+        println("[findById()]  ****   select * from wine where id = " + id)
+        val findWineSQL = SQL("""select * from wine where id = {id}""").on("id" -> id)
+
+
+
+        val wines:List[Wine] = findWineSQL().collect {
+          case Row(
+              Some(id:Int),
+              Some(color:String),
+              Some(name:String),
+              Some(year:Int),
+              Some(denomination:String),
+              Some(country:String),
+              Some(description:String),
+              Some(comments:String)) =>
+            Wine(id,color,name,year,denomination,country,description,comments)
+      }.toList
+      wines.head
+
+  }
+
+
+
+
+def addHardcoded(wine:Wine) {
     wines = wines + wine
   }
 
@@ -84,6 +110,7 @@ object Wine {
           "comments" -> wine.comments
         ).
         executeUpdate()
+      println("[add()]  ****   row added for id " + wine.id + " result = " + addedRows == 1)
       addedRows == 1
     }
 
