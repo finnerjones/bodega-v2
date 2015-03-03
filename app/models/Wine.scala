@@ -64,7 +64,27 @@ object Wine {
   }
 
 
-  def add(wine:Wine) {
+  def addHardcoded(wine:Wine) {
     wines = wines + wine
   }
+
+
+  def add(wine:Wine) : Boolean =
+
+    DB.withConnection { implicit connection =>
+      val addedRows = SQL("""insert into wine values ({id}, {color}, {name}, {year}, {denomination}, {country}, {description},{comments})""")
+        .on(
+          "id" -> wine.id,
+          "color" -> wine.color,
+          "name" -> wine.name,
+          "year" -> wine.year,
+          "denomination" -> wine.denomination,
+          "country" -> wine.country,
+          "description" -> wine.description,
+          "comments" -> wine.comments
+        ).
+        executeUpdate()
+      addedRows == 1
+    }
+
 }

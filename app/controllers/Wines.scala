@@ -15,7 +15,8 @@ object Wines extends Controller {
 
   private val wineForm: Form[Wine] = Form(
     mapping(
-      "id" -> number.verifying("validation.ean.duplicate", Wine.findById(_).isEmpty),
+      //"id" -> number.verifying("validation.ean.duplicate", Wine.findById(_).isEmpty),
+      "id" -> number,
       "color" -> nonEmptyText,
       "name" -> nonEmptyText,
       "year" -> number.verifying(_ > 1000),
