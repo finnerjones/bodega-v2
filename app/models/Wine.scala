@@ -1,5 +1,10 @@
 package models
 
+import anorm.SqlQuery
+import anorm.SQL
+import play.api.db.DB
+import play.api.Play.current
+
 // http://winefolly.com/review/wine-characteristics/
 // http://en.wikipedia.org/wiki/Wine
 
@@ -29,7 +34,25 @@ object Wine {
 
   )
 
-  def findAll = wines.toList.sortBy(_.name)
+  def findAllHardcoded = wines.toList.sortBy(_.name)
+
+  def findAll : List[Wine] = DB.withConnection {
+    implicit connection =>
+      val sql:SqlQuery = SQL("SELECT * FROM wine")
+      sql().map( row =>
+      Wine(
+        row[Int]("id"),
+        row[String]("color"),
+        row[String]("name"),
+        row[Int]("year"),
+        row[String]("denomination"),
+        row[String]("country"),
+        row[String]("description"),
+        row[String]("comments"))).toList
+
+  }
+
+
 
   def findById(id: Int) = {
     val fwine = wines.find(_.id == id)
