@@ -1,0 +1,37 @@
+@(wines: Seq[Wine])
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bodega-V2</title>
+        <link href='@routes.Assets.at("stylesheets/main.css")' rel="stylesheet">
+    </head>
+    <body>
+        <div id="header">
+            <h1>Wines</h1>
+        </div>
+        <div id="navigation">
+           <ul>
+               <li><a href="@routes.Wines.list">List</a></li>
+               <li><a href="@routes.Wines.catalog">Catalog</a></li>
+               <li><a href="@routes.Wines.newWine">New</a></li>
+           </ul>
+        </div>
+        <div id="content">
+            <h2>Bodega-V2 Wines</h2>
+            <ul class="wines">
+                @for(wine <- wines) {
+                    <li>
+                        <h3>@wine.name</h3>
+                        <p class="description">@wine.description</p>
+                    </li>
+                }
+            </ul>
+        </div>
+        <footer>
+            <p>Copyright finnerjones.com 2000 - 2015</p>
+        </footer>
+    </body>
+
+
+
+</html>

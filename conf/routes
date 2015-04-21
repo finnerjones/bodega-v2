@@ -6,6 +6,7 @@
 GET     /                           controllers.Application.index
 GET     /wines                      controllers.Wines.list
 POST    /wines                      controllers.Wines.save
+GET     /wines/catalog              controllers.Wines.catalog
 GET     /wines/new                  controllers.Wines.newWine
 GET     /wines/:id                  controllers.Wines.show(id :Int)
 

@@ -34,6 +34,11 @@ object Wines extends Controller {
   }
 
 
+  def catalog = Action {
+    val wines = Wine.findAll
+    Ok(views.html.wines.catalog(wines))
+  }
+
   def show(id: Int) = Action { implicit request =>
     println(" [show()] *****   findById for id: " + id)
     val wine = Wine.findById(id)
