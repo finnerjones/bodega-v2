@@ -34,7 +34,7 @@ object Wines extends Controller {
   }
 
 
-  def catalog = Action {
+  def catalog = Action { implicit request =>
     val wines = Wine.findAll
     Ok(views.html.wines.catalog(wines))
   }
