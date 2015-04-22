@@ -1,17 +1,17 @@
 @(wine :Wine)(implicit flash:Flash, lang: Lang)
 
-@main(Messages("wine.details", wine.name)) {
+@main(Messages("wine.details", wine.wineName)) {
 
     <h2>
-        @Messages("wine.details", wine.name) [ Id: @wine.id ]
+        @Messages("wine.details", wine.wineName) [ Id: @wine.wineId.get ]
     </h2>
 
     <dl class="dl-horizontal">
         <dt>@Messages("wine.name"):</dt>
-        <dd>@wine.name</dd>
+        <dd>@wine.wineName</dd>
         <dt>@Messages("wine.color"):</dt>
-        <dd>@wine.color</dd>
+        <dd>@wine.wineType</dd>
         <dt>@Messages("wine.year"):</dt>
-        <dd>@wine.year</dd>
+        <dd>@wine.wineYear</dd>
     </dl>
 }
