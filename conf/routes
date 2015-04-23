@@ -8,7 +8,7 @@ GET     /wines                      controllers.Wines.list
 POST    /wines                      controllers.Wines.save
 GET     /wines/catalog              controllers.Wines.catalog
 GET     /wines/new                  controllers.Wines.newWine
-GET     /wines/:id                  controllers.Wines.show(id :Int)
+GET     /wines/:id                  controllers.Wines.show(id :Long)
 
 
 # Map static resources from the /public folder to the /assets URL path

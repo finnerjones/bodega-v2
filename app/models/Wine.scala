@@ -2,58 +2,63 @@ package models
 
 import java.util.Date
 
-import anorm.{Row, SqlQuery, SQL, Pk}
+import anorm.{Row, SqlQuery, SQL}
 import play.api.db.DB
 import play.api.Play.current
 
 // http://winefolly.com/review/wine-characteristics/
 // http://en.wikipedia.org/wiki/Wine
 
-case class Wine(wineId: Pk[Int],
+// The Model matching the WINE table in Database
+case class Wine(wineId: Long,
                 wineName: String,
                 wineType: String,
                 wineCountry: String,
-                wineDescription: String,
+                wineDescription: Option[String],
                 wineYear: Int,
-                wineGrapes: String,
-                winePrice: Double,
-                wineCeller: String,
-                wineDenomOrigin: String,
-                wineVender: String,
-                wineAlcohol: Double,
-                wineDatePurchased: Date,
-                wineDateOpened: Date,
-                wineDateInserted: Date,
-                wineDateLastModified: Date,
-                wineComments: String)
+                wineGrapes: Option[String],
+                winePrice: Option[Double],
+                wineCeller: Option[String],
+                wineDenomOrigin: Option[String],
+                wineVender: Option[String],
+                wineAlcohol: Option[Double],
+                wineDatePurchased: Option[Date],
+                wineDateOpened: Option[Date],
+                wineDateInserted: Option[Date],
+                wineDateLastModified: Option[Date],
+                wineComments: Option[String])
 
 object Wine {
 
+
+  /*
+    This is an implementation using the Anorm Stream API
+   */
   def findAll : List[Wine] = DB.withConnection {
     implicit connection =>
       val sql:SqlQuery = SQL("SELECT * FROM wine")
       sql().map( row =>
       Wine(
-        row[Pk[Int]]("wine_id"),
+        row[Long]("wine_id"),
         row[String]("wine_name"),
         row[String]("wine_type"),
         row[String]("wine_country"),
-        row[String]("wine_description"),
+        row[Option[String]]("wine_description"),
         row[Int]("wine_year"),
-        row[String]("wine_grapes"),
-        row[Double]("wine_price"),
-        row[String]("wine_celler"),
-        row[String]("wine_denom_origin"),
-        row[String]("wine_vender"),
-        row[Double]("wine_alcohol"),
-        row[Date]("wine_date_purchased"),
-        row[Date]("wine_date_opened"),
-        row[Date]("wine_date_inserted"),
-        row[Date]("wine_date_last_modified"),
-        row[String]("wine_comments"))).toList
+        row[Option[String]]("wine_grapes"),
+        row[Option[Double]]("wine_price"),
+        row[Option[String]]("wine_celler"),
+        row[Option[String]]("wine_denom_origin"),
+        row[Option[String]]("wine_vender"),
+        row[Option[Double]]("wine_alcohol"),
+        row[Option[Date]]("wine_date_purchased"),
+        row[Option[Date]]("wine_date_opened"),
+        row[Option[Date]]("wine_date_inserted"),
+        row[Option[Date]]("wine_date_last_modified"),
+        row[Option[String]]("wine_comments"))).toList
   }
 
-  def findById(id:Int):Wine =
+  def findById(id:Long):Wine =
     DB.withConnection {
       implicit connection =>
         println("[findById()]  ****   select * from wine where id = " + id)
@@ -61,23 +66,23 @@ object Wine {
 
         val wines:List[Wine] = findWineSQL().collect {
           case Row(
-              Some(wineId:Pk[Int]),
+              Some(wineId:Long),
               Some(wineName:String),
               Some(wineType:String),
               Some(wineCountry:String),
-              Some(wineDescription:String),
+              Some(wineDescription:Option[String]),
               Some(wineYear:Int),
-              Some(wineGrapes:String),
-              Some(winePrice:Double),
-              Some(wineCeller:String),
-              Some(wineDenomOrigin:String),
-              Some(wineVender:String),
-              Some(wineAlcohol:Double),
-              Some(wineDatePurchased:Date),
-              Some(wineDateOpened:Date),
-              Some(wineDateInserted:Date),
-              Some(wineDateLastModified:Date),
-              Some(wineComments:String)) =>
+              Some(wineGrapes:Option[String]),
+              Some(winePrice:Option[Double]),
+              Some(wineCeller:Option[String]),
+              Some(wineDenomOrigin:Option[String]),
+              Some(wineVender:Option[String]),
+              Some(wineAlcohol:Option[Double]),
+              Some(wineDatePurchased:Option[Date]),
+              Some(wineDateOpened:Option[Date]),
+              Some(wineDateInserted:Option[Date]),
+              Some(wineDateLastModified:Option[Date]),
+              Some(wineComments:Option[String])) =>
                 Wine(wineId,wineName,wineType,wineCountry,
                   wineDescription,wineYear,wineGrapes,winePrice,wineCeller,
                   wineDenomOrigin,wineVender,wineAlcohol,wineDatePurchased,
@@ -86,6 +91,7 @@ object Wine {
       wines.head
 
   }
+
 
 
   def add(wine:Wine) : Boolean =
@@ -113,8 +119,8 @@ object Wine {
           "wineDateLastModified" -> wine.wineDateLastModified,
           "wineComments" -> wine.wineComments
         ).
-        executeInsert()
-      println("[add()]  ****   row added for id " + wine.wineId + " result = " + (addedRows == 1))
+        executeInsert()   // executeInsert() should auto generate the ID if the PK is Long
+      println("[add()]  ****   row added a wine, result = " + (addedRows == 1))
       addedRows == 1
     }
 
