@@ -61,8 +61,8 @@ object Wine {
   def findById(id:Long):Wine =
     DB.withConnection {
       implicit connection =>
-        println("[findById()]  ****   select * from wine where id = " + id)
-        val findWineSQL = SQL("""select * from wine where id = {id}""").on("id" -> id)
+        println("[findById()]  ****   select * from wine where wine_id = " + id)
+        val findWineSQL = SQL("""select * from wine where wine_id = {id}""").on("id" -> id)
 
         val wines:List[Wine] = findWineSQL().collect {
           case Row(
@@ -97,10 +97,14 @@ object Wine {
   def add(wine:Wine) : Boolean =
 
     DB.withConnection { implicit connection =>
-      val addedRows = SQL("""insert into wine values ({wineName},{wineType},{wineCountry},
-                            |                  {wineDescription},{wineYear},{wineGrapes},{winePrice},{wineCeller},
-                            |                  {wineDenomOrigin},{wineVender},{wineAlcohol},{wineDatePurchased},
-                            |                  {wineDateOpened},{wineDateInserted},{wineDateLastModified},{wineComments})""")
+      val addedRows = SQL("""insert into wine(wine_name, wine_type, wine_country,
+                            wine_description, wine_year, wine_grapes, wine_price, wine_celler,
+                            wine_denom_origin, wine_vender, wine_alcohol, wine_date_purchased,
+                            wine_date_opened, wine_date_inserted, wine_date_last_modified, wine_comments
+                          ) values ({wineName},{wineType},{wineCountry},
+                                  {wineDescription},{wineYear},{wineGrapes},{winePrice},{wineCeller},
+                                  {wineDenomOrigin},{wineVender},{wineAlcohol},{wineDatePurchased},
+                                  {wineDateOpened},{wineDateInserted},{wineDateLastModified},{wineComments})""")
         .on(
           "wineName" -> wine.wineName,
           "wineType" -> wine.wineType,

@@ -65,7 +65,7 @@ object Wines extends Controller {
       success = { newWine =>
         Wine.add(newWine)
         val message = Messages("wines.new.success", newWine.wineName)
-        Redirect(routes.Wines.show(newWine.wineId)).flashing("success" -> message)
+        Redirect(routes.Wines.list).flashing("success" -> message)
       }
     )
   }
