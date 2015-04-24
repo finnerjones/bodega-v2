@@ -98,7 +98,7 @@ object Wine {
 
     DB.withConnection { implicit connection =>
       val addedRows = SQL("""insert into wine(wine_name, wine_type, wine_country,
-                            wine_description, wine_year, wine_grapes, wine_price, wine_celler,
+                            wine_description, wine_year, wine_grapes, wine_price, wine_cellar,
                             wine_denom_origin, wine_vender, wine_alcohol, wine_date_purchased,
                             wine_date_opened, wine_date_inserted, wine_date_last_modified, wine_comments
                           ) values ({wineName},{wineType},{wineCountry},

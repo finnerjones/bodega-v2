@@ -1,5 +1,8 @@
 application.name=Bodega
 
+application.alt.edit=Editar
+application.alt.delete=Borrar
+
 application.wine.name=Nombre
 application.wine.type=Tipo
 application.wine.year=Año
