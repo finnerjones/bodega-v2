@@ -1,10 +1,15 @@
 application.name=Bodega
-application.wine.color=Color
-application.wine.name=Id
+
 application.wine.name=Nombre
+application.wine.type=Tipo
 application.wine.year=Año
-application.wine.denomination=Denominación
 application.wine.country=País
+application.wine.denomination=Denominación
+application.wine.description=Descripción
+application.wine.price=Precio
+application.wine.cellar=Bodega
+application.wine.datePurchased=Fecha de Compra
+application.wine.dateOpened=Fecha de consumir
 
 wine.details=Detalles
 wine.name=Nombre
@@ -18,4 +23,3 @@ wines.new.submit=Añadir
 wines.new.success=vino {0} añadido
 wines.list.navigation=Vinos
 validation.errors=Corrija los errores en el formulario.
-validation.ean.duplicate=Ya existe un vino con este EAN

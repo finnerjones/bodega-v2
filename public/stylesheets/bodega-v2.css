@@ -6,6 +6,10 @@
 
 div.screenshot {
     width:90%;
-    margin:2%;
+    margin:20px;
     background-color:#D0E7EF;
+    }
+.screenshot > .container {
+    width:98%;
+    padding:10px;
     }

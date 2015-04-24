@@ -25,7 +25,7 @@ object Wines extends Controller {
       "wineYear" -> number.verifying(_ > 1000),
       "wineGrapes" -> optional(text),
       "winePrice" -> optional(of(doubleFormat)),
-      "wineCeller" -> optional(text),
+      "wineCellar" -> optional(text),
       "wineDenomOrigin" -> optional(text),
       "wineVender" -> optional(text),
       "wineAlcohol" -> optional(of(doubleFormat)),

@@ -18,7 +18,7 @@ case class Wine(wineId: Long,
                 wineYear: Int,
                 wineGrapes: Option[String],
                 winePrice: Option[Double],
-                wineCeller: Option[String],
+                wineCellar: Option[String],
                 wineDenomOrigin: Option[String],
                 wineVender: Option[String],
                 wineAlcohol: Option[Double],
@@ -47,7 +47,7 @@ object Wine {
         row[Int]("wine_year"),
         row[Option[String]]("wine_grapes"),
         row[Option[Double]]("wine_price"),
-        row[Option[String]]("wine_celler"),
+        row[Option[String]]("wine_cellar"),
         row[Option[String]]("wine_denom_origin"),
         row[Option[String]]("wine_vender"),
         row[Option[Double]]("wine_alcohol"),
@@ -74,7 +74,7 @@ object Wine {
               Some(wineYear:Int),
               Some(wineGrapes:Option[String]),
               Some(winePrice:Option[Double]),
-              Some(wineCeller:Option[String]),
+              Some(wineCellar:Option[String]),
               Some(wineDenomOrigin:Option[String]),
               Some(wineVender:Option[String]),
               Some(wineAlcohol:Option[Double]),
@@ -84,7 +84,7 @@ object Wine {
               Some(wineDateLastModified:Option[Date]),
               Some(wineComments:Option[String])) =>
                 Wine(wineId,wineName,wineType,wineCountry,
-                  wineDescription,wineYear,wineGrapes,winePrice,wineCeller,
+                  wineDescription,wineYear,wineGrapes,winePrice,wineCellar,
                   wineDenomOrigin,wineVender,wineAlcohol,wineDatePurchased,
                   wineDateOpened,wineDateInserted,wineDateLastModified,wineComments)
       }.toList
@@ -102,7 +102,7 @@ object Wine {
                             wine_denom_origin, wine_vender, wine_alcohol, wine_date_purchased,
                             wine_date_opened, wine_date_inserted, wine_date_last_modified, wine_comments
                           ) values ({wineName},{wineType},{wineCountry},
-                                  {wineDescription},{wineYear},{wineGrapes},{winePrice},{wineCeller},
+                                  {wineDescription},{wineYear},{wineGrapes},{winePrice},{wineCellar},
                                   {wineDenomOrigin},{wineVender},{wineAlcohol},{wineDatePurchased},
                                   {wineDateOpened},{wineDateInserted},{wineDateLastModified},{wineComments})""")
         .on(
@@ -113,7 +113,7 @@ object Wine {
           "wineYear" -> wine.wineYear,
           "wineGrapes" -> wine.wineGrapes,
           "winePrice" -> wine.winePrice,
-          "wineCeller" -> wine.wineCeller,
+          "wineCellar" -> wine.wineCellar,
           "wineDenomOrigin" -> wine.wineDenomOrigin,
           "wineVender" -> wine.wineVender,
           "wineAlcohol" -> wine.wineAlcohol,

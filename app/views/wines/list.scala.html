@@ -8,6 +8,10 @@
             <th>@Messages("application.wine.country")</th>
             <th>@Messages("application.wine.denomination")</th>
             <th>@Messages("application.wine.description")</th>
+            <th>@Messages("application.wine.price")</th>
+            <th>@Messages("application.wine.cellar")</th>
+            <th>@Messages("application.wine.datePurchased")</th>
+            <th>@Messages("application.wine.dateOpened")</th>
         </tr>
 
         @for(wine <- wines) {
@@ -18,6 +22,10 @@
                 <td>@wine.wineCountry</td>
                 <td>@wine.wineDenomOrigin</td>
                 <td>@wine.wineDescription</td>
+                <td>@wine.winePrice</td>
+                <td>@wine.wineCellar</td>
+                <td>@wine.wineDatePurchased</td>
+                <td>@wine.wineDateOpened</td>
             </tr>
         }
     </table>

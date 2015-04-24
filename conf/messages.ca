@@ -1,10 +1,15 @@
 application.name=Bodega
-application.wine.color=Color
-application.wine.name=Id
+
 application.wine.name=Nom
+application.wine.type=Tipo
 application.wine.year=Any
-application.wine.denomination=Denominació
 application.wine.country=País
+application.wine.denomination=Denominació
+application.wine.description=Descripció
+application.wine.price=Precio
+application.wine.cellar=Bodega
+application.wine.datePurchased=Fecha de Compra
+application.wine.dateOpened=Fecha de consumir
 
 wine.details=Detalls
 wine.name=Nom
