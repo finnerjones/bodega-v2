@@ -1,0 +1,11 @@
+/*!
+  Bodega-V2 CSS particularities.
+  Override bootstrap.css and main.css here
+
+*/
+
+div.screenshot {
+    width:90%;
+    margin:2%;
+    background-color:#D0E7EF;
+    }

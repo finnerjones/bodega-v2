@@ -8,11 +8,11 @@ CREATE TABLE wine (
   wine_description VARCHAR(1024),
   wine_year INTEGER NOT NULL,
   wine_grapes VARCHAR(256),
-  wine_price DECIMAL(10,2),
+  wine_price DOUBLE(7,2),
   wine_celler VARCHAR(256),
   wine_denom_origin VARCHAR(512),
   wine_vender VARCHAR(512),
-  wine_alcohol DECIMAL(5,2),
+  wine_alcohol DOUBLE(5,2),
   wine_date_purchased DATE,
   wine_date_opened DATE,
   wine_date_inserted DATE,
@@ -22,7 +22,9 @@ CREATE TABLE wine (
 );
 
 -- insert test data
-insert into wine values (1,"test_wine_name","test_wine_type","test_wine_country",null,1999,null,null,null,null,null,null,null,null,null,null,null);
+insert into wine values (1,"test wine name","test wine type","test wine country",
+                          "test wine description",2015,"tempranillo",99999.99,"test wine celler",
+                          "test wine denomination origin","test wine vender",999.99,"2015-04-29","2015-04-29",CURRENT_DATE,CURRENT_DATE,"test wine comments");
 
 # --- !Downs
 

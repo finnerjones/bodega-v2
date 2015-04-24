@@ -2,20 +2,22 @@
 @main(Messages("application.name")) {
     <table class="wine">
         <tr>
-            <th>@Messages("application.wine.id")</th>
             <th>@Messages("application.wine.name")</th>
-            <th>@Messages("application.wine.color")</th>
+            <th>@Messages("application.wine.type")</th>
             <th>@Messages("application.wine.year")</th>
+            <th>@Messages("application.wine.country")</th>
             <th>@Messages("application.wine.denomination")</th>
+            <th>@Messages("application.wine.description")</th>
         </tr>
 
         @for(wine <- wines) {
             <tr>
-                <td>@wine.wineId</td>
                 <td>@wine.wineName</td>
                 <td>@wine.wineType</td>
                 <td>@wine.wineYear</td>
+                <td>@wine.wineCountry</td>
                 <td>@wine.wineDenomOrigin</td>
+                <td>@wine.wineDescription</td>
             </tr>
         }
     </table>
