@@ -2,7 +2,7 @@ package models
 
 import java.util.Date
 
-import anorm.{Row, SqlQuery, SQL}
+import anorm.{SimpleSql, Row, SqlQuery, SQL}
 import play.api.db.DB
 import play.api.Play.current
 
@@ -58,35 +58,69 @@ object Wine {
         row[Option[String]]("wine_comments"))).toList
   }
 
-  def findById(id:Long):Wine =
+
+  /*
+  This is an implementation using map from the Anorm Stream API
+ */
+  def findById(id:Long) : Wine = DB.withConnection {
+    implicit connection =>
+      val sql:SimpleSql[Row] = SQL("SELECT * FROM wine where wine_id = {id}").on("id" -> id)
+      sql().map( row =>
+        Wine(
+          row[Long]("wine_id"),
+          row[String]("wine_name"),
+          row[String]("wine_type"),
+          row[String]("wine_country"),
+          row[Option[String]]("wine_description"),
+          row[Int]("wine_year"),
+          row[Option[String]]("wine_grapes"),
+          row[Option[Double]]("wine_price"),
+          row[Option[String]]("wine_cellar"),
+          row[Option[String]]("wine_denom_origin"),
+          row[Option[String]]("wine_vender"),
+          row[Option[Double]]("wine_alcohol"),
+          row[Option[Date]]("wine_date_purchased"),
+          row[Option[Date]]("wine_date_opened"),
+          row[Option[Date]]("wine_date_inserted"),
+          row[Option[Date]]("wine_date_last_modified"),
+          row[Option[String]]("wine_comments"))).toList.head
+  }
+
+
+
+  /*
+    This does not work because the SELECT returns nothing
+   */
+  def findByIdCollect(id:Long):Wine =
     DB.withConnection {
       implicit connection =>
         println("[findById()]  ****   select * from wine where wine_id = " + id)
-        val findWineSQL = SQL("""select * from wine where wine_id = {id}""").on("id" -> id)
+        val findWineSQL:SimpleSql[Row] = SQL("SELECT * FROM wine where wine_id = {id}").on("id" -> id)
 
         val wines:List[Wine] = findWineSQL().collect {
+          //case _ => Wine(id,"name","type","country",null,2010,null,null,null,null,null,null,null,null,null,null,null)
           case Row(
-              Some(wineId:Long),
-              Some(wineName:String),
-              Some(wineType:String),
-              Some(wineCountry:String),
-              Some(wineDescription:Option[String]),
-              Some(wineYear:Int),
-              Some(wineGrapes:Option[String]),
-              Some(winePrice:Option[Double]),
-              Some(wineCellar:Option[String]),
-              Some(wineDenomOrigin:Option[String]),
-              Some(wineVender:Option[String]),
-              Some(wineAlcohol:Option[Double]),
-              Some(wineDatePurchased:Option[Date]),
-              Some(wineDateOpened:Option[Date]),
-              Some(wineDateInserted:Option[Date]),
-              Some(wineDateLastModified:Option[Date]),
-              Some(wineComments:Option[String])) =>
+              wineId:Long,
+              wineName:String,
+              wineType:String,
+              wineCountry:String,
+              Some(wineDescription:String),
+              wineYear:Int,
+              Some(wineGrapes:String),
+              Some(winePrice:Double),
+              Some(wineCellar:String),
+              Some(wineDenomOrigin:String),
+              Some(wineVender:String),
+              Some(wineAlcohol:Double),
+              Some(wineDatePurchased:Date),
+              Some(wineDateOpened:Date),
+              Some(wineDateInserted:Date),
+              Some(wineDateLastModified:Date),
+              Some(wineComments:String)) =>
                 Wine(wineId,wineName,wineType,wineCountry,
-                  wineDescription,wineYear,wineGrapes,winePrice,wineCellar,
-                  wineDenomOrigin,wineVender,wineAlcohol,wineDatePurchased,
-                  wineDateOpened,wineDateInserted,wineDateLastModified,wineComments)
+                  Some(wineDescription),wineYear,Some(wineGrapes),Some(winePrice),Some(wineCellar),
+                  Some(wineDenomOrigin),Some(wineVender),Some(wineAlcohol),Some(wineDatePurchased),
+                  Some(wineDateOpened),Some(wineDateInserted),Some(wineDateLastModified),Some(wineComments))
       }.toList
       wines.head
 
