@@ -17,21 +17,15 @@
                     </a>
                     <ul class="nav">
                         <li class="divider-vertical"></li>
-                        <li class="active">
-                            <a href="@routes.Wines.list()">
-                                @Messages("wines.list.navigation")
-                            </a>
-                        </li>
-                        <li class="active">
+                        <li >
                             <a href="@routes.Wines.newWine()">
-                                <i class="icon-plus icon-white"></i>
-                                @Messages("wines.new.command")
+                                <img width="26px" height="26px" alt='@Messages("application.alt.add")' src='@routes.Assets.at("images/admin/add-item.png")' />
                             </a>
                         </li>
-                        <li class="active">
-                            <a href="@routes.Wines.catalog()">
-                                <i class="icon-plus icon-white"></i>
-                                catalog
+                        <li class="divider-vertical"></li>
+                        <li >
+                            <a href="@routes.Wines.list()">
+                                <img width="26px" height="23px" alt='@Messages("application.alt.list")' src='@routes.Assets.at("images/admin/list.png")' />
                             </a>
                         </li>
                         <li class="divider-vertical"></li>
