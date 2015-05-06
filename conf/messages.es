@@ -24,5 +24,7 @@ wines.new=(nuevo)
 wines.new.command=Añadir
 wines.new.submit=Añadir
 wines.new.success=vino {0} añadido
+wines.delete.success=Vino {0} borrado
+wines.delete.error=Se ha ocurrido un error al borrar el vino {0}
 wines.list.navigation=Vinos
 validation.errors=Corrija los errores en el formulario.

@@ -24,5 +24,7 @@ wines.new=(new)
 wines.new.command=New
 wines.new.submit=Add
 wines.new.success=Successfully added wine {0}
+wines.delete.success=Successfully deleted wine {0}
+wines.delete.error=Error occurred deleting wine {0}
 wines.list.navigation=Wines
 validation.errors=Please correct the errors in the form.

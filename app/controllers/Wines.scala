@@ -50,7 +50,6 @@ object Wines extends Controller {
   }
 
   def show(id: Long) = Action { implicit request =>
-    println(" [show()] *****   findById for id: " + id)
     val wine = Wine.findById(id)
     Ok(views.html.wines.details(wine))
   }
@@ -70,13 +69,27 @@ object Wines extends Controller {
     )
   }
 
-  def newWine = Action { implicit reques =>
+  def newWine = Action { implicit request =>
     val form = if (flash.get("error").isDefined)
       wineForm.bind(flash.data)
     else
       wineForm
 
     Ok(views.html.wines.editWine(form))
+  }
+
+
+  def deleteWine(id:Long) = Action { implicit request =>
+    val wine:Wine = Wine.findById(id)
+    val success = Wine.delete(id)
+    if (success) {
+      val message = Messages("wines.delete.success", wine.wineName)
+      Redirect(routes.Wines.list).flashing("success" -> message)
+    } else {
+      val message = Messages("wines.delete.error", wine.wineName)
+      Redirect(routes.Wines.list).flashing("success" -> message)
+
+    }
   }
 
 }

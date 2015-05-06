@@ -26,7 +26,10 @@
                     <img alt='@Messages("application.alt.edit")' src='@routes.Assets.at("images/admin/edit.png")' />
                     </a>
                 </td>
-                <td><img alt='@Messages("application.alt.delete")' src='@routes.Assets.at("images/admin/delete.jpg")' /></td>
+                <td><a href="@controllers.routes.Wines.deleteWine(wine.wineId)">
+                    <img alt='@Messages("application.alt.delete")' src='@routes.Assets.at("images/admin/delete.jpg")' />
+                    </a>
+                </td>
 
             </tr>
         }

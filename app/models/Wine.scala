@@ -94,7 +94,6 @@ object Wine {
   def findByIdCollect(id:Long):Wine =
     DB.withConnection {
       implicit connection =>
-        println("[findById()]  ****   select * from wine where wine_id = " + id)
         val findWineSQL:SimpleSql[Row] = SQL("SELECT * FROM wine where wine_id = {id}").on("id" -> id)
 
         val wines:List[Wine] = findWineSQL().collect {
@@ -158,8 +157,12 @@ object Wine {
           "wineComments" -> wine.wineComments
         ).
         executeInsert()   // executeInsert() should auto generate the ID if the PK is Long
-      println("[add()]  ****   row added a wine, result = " + (addedRows == 1))
       addedRows == 1
     }
 
+  def delete(id:Long): Boolean =
+    DB.withConnection { implicit connection =>
+      val updatedRows = SQL("DELETE FROM wine WHERE wine_id = {id}").on("id" -> id).executeUpdate()
+      updatedRows == 1
+    }
 }
