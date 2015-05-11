@@ -160,6 +160,57 @@ object Wine {
       addedRows == 1
     }
 
+
+  def update(wine:Wine) : Boolean =
+    DB.withConnection { implicit connection =>
+      println("wine name is " + wine.wineName + " wine id is " + wine.wineId)
+      val updatedRows = SQL("""
+                       UPDATE wine
+                       SET
+                        wine_name = {wineName},
+                        wine_type = {wineType},
+                        wine_country = {wineCountry},
+                        wine_description = {wineDescription},
+                        wine_year = {wineYear},
+                        wine_grapes = {wineGrapes},
+                        wine_price = {winePrice},
+                        wine_cellar = {wineCellar},
+                        wine_denom_origin = {wineDenomOrigin},
+                        wine_vender = {wineVender},
+                        wine_alcohol = {wineAlcohol},
+                        wine_date_purchased = {wineDatePurchased},
+                        wine_date_opened = {wineDateOpened},
+                        wine_date_inserted = {wineDateInserted},
+                        wine_date_last_modified = {wineDateLastModified},
+                        wine_comments = {wineComments}
+                       WHERE wine_id = {id}
+                       """)
+        .on(
+          "id" -> wine.wineId,
+          "wineName" -> wine.wineName,
+          "wineType" -> wine.wineType,
+          "wineCountry" -> wine.wineCountry,
+          "wineDescription" -> wine.wineDescription,
+          "wineYear" -> wine.wineYear,
+          "wineGrapes" -> wine.wineGrapes,
+          "winePrice" -> wine.winePrice,
+          "wineCellar" -> wine.wineCellar,
+          "wineDenomOrigin" -> wine.wineDenomOrigin,
+          "wineVender" -> wine.wineVender,
+          "wineAlcohol" -> wine.wineAlcohol,
+          "wineDatePurchased" -> wine.wineDatePurchased,
+          "wineDateOpened" -> wine.wineDateOpened,
+          "wineDateInserted" -> wine.wineDateInserted,
+          "wineDateLastModified" -> wine.wineDateLastModified,
+          "wineComments" -> wine.wineComments
+        ).
+        executeUpdate()
+      println(" rows added = " + updatedRows)
+      updatedRows == 1
+    }
+
+
+
   def delete(id:Long): Boolean =
     DB.withConnection { implicit connection =>
       val updatedRows = SQL("DELETE FROM wine WHERE wine_id = {id}").on("id" -> id).executeUpdate()

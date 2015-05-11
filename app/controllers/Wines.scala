@@ -5,7 +5,7 @@ import models.Wine
 import play.api.mvc.{Action, Controller}
 import play.api.data.format.Formats._
 import play.api.data.Form
-import play.api.data.Forms.{mapping, number, nonEmptyText, text, date, of, ignored, optional}
+import play.api.data.Forms.{mapping, number, longNumber, nonEmptyText, text, date, of, ignored, optional}
 import play.api.i18n.Messages
 import play.api.mvc.Flash
 
@@ -37,17 +37,33 @@ object Wines extends Controller {
     )(Wine.apply)(Wine.unapply)
   )
 
+  private val wineUpdateForm: Form[Wine] = Form(
+    mapping(
+      "wineId" -> longNumber,
+      "wineName" -> nonEmptyText,
+      "wineType" -> nonEmptyText,
+      "wineCountry" -> nonEmptyText,
+      "wineDescription" -> optional(text),
+      "wineYear" -> number.verifying(_ > 1000),
+      "wineGrapes" -> optional(text),
+      "winePrice" -> optional(of(doubleFormat)),
+      "wineCellar" -> optional(text),
+      "wineDenomOrigin" -> optional(text),
+      "wineVender" -> optional(text),
+      "wineAlcohol" -> optional(of(doubleFormat)),
+      "wineDatePurchased" -> optional(date),
+      "wineDateOpened" -> optional(date),
+      "wineDateInserted" -> optional(date),
+      "wineDateLastModified" -> optional(date),
+      "wineComments" -> optional(text)
+    )(Wine.apply)(Wine.unapply)
+  )
 
   def list = Action { implicit request =>
     val wines = Wine.findAll
     Ok(views.html.wines.list(wines))
   }
 
-
-  def catalog = Action { implicit request =>
-    val wines = Wine.findAll
-    Ok(views.html.wines.catalog(wines))
-  }
 
   def show(id: Long) = Action { implicit request =>
     val wine = Wine.findById(id)
@@ -56,22 +72,33 @@ object Wines extends Controller {
 
 
   def edit(id:Long) = Action { implicit request =>
-    println("editing .... id " + id)
     val wineToEdit = Wine.findById(id)
     val editWineForm = wineForm.fill(wineToEdit)
-    println(editWineForm.data)
     editWineForm.fold(
       hasErrors = { form =>
-        println(form.data)
         Redirect(routes.Wines.list()).flashing(Flash(form.data) + ("error" -> Messages("validation.errors")))
       },
       success = { newWine =>
-        Ok(views.html.wines.editWine(editWineForm))
+        Ok(views.html.wines.updateWine(editWineForm))
       }
     )
 
   }
 
+  def update = Action { implicit request =>
+    val updateWineForm = wineUpdateForm.bindFromRequest()
+    println("I am in wines update ....." + updateWineForm.data)
+    updateWineForm.fold(
+      hasErrors = { form =>
+        Redirect(routes.Wines.update()).flashing(Flash(form.data) + ("error" -> Messages("validation.errors")))
+      },
+      success = { updateWine =>
+        Wine.update(updateWine)
+        val message = Messages("wines.update.success", updateWine.wineName)
+        Redirect(routes.Wines.list).flashing("success" -> message)
+      }
+    )
+  }
 
 
   def save = Action { implicit request =>

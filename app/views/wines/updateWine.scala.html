@@ -1,0 +1,37 @@
+@(wineForm:Form[Wine])(implicit flash: Flash, lang: Lang)
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Messages("wines.form")) {
+
+    <h2>@Messages("wines.form")</h2>
+
+    @helper.form(action = routes.Wines.update()) {
+        <fieldset>
+            <legend>
+                @Messages("wines.details", Messages("wines.update"))
+            </legend>
+            @helper.inputText(wineForm("wineId"))
+            @helper.inputText(wineForm("wineName"))
+            @helper.inputText(wineForm("wineType"))
+            @helper.inputText(wineForm("wineCountry"))
+            @helper.inputText(wineForm("wineDescription"))
+            @helper.inputText(wineForm("wineYear"))
+            @helper.inputText(wineForm("wineGrapes"))
+            @helper.inputText(wineForm("winePrice"))
+            @helper.inputText(wineForm("wineCeller"))
+            @helper.inputText(wineForm("wineDenomOrigin"))
+            @helper.inputText(wineForm("wineVender"))
+            @helper.inputText(wineForm("wineAlcohol"))
+            @helper.inputText(wineForm("wineDatePurchased"))
+            @helper.inputText(wineForm("wineDateOpened"))
+            @helper.inputText(wineForm("wineDateInserted"))
+            @helper.inputText(wineForm("wineDateLastModified"))
+            @helper.inputText(wineForm("wineComments"))
+        </fieldset>
+        <p>
+            <input type="submit" class="btn primary" value='@Messages("wines.update.submit")'>
+        </p>
+    }
+
+}
