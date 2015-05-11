@@ -10,6 +10,7 @@ GET     /wines/catalog              controllers.Wines.catalog
 GET     /wines/new                  controllers.Wines.newWine
 GET     /wines/:id                  controllers.Wines.show(id :Long)
 GET     /wines/delete/:id           controllers.Wines.deleteWine(id :Long)
+GET     /wines/edit/:id             controllers.Wines.edit(id :Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

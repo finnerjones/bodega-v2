@@ -54,6 +54,26 @@ object Wines extends Controller {
     Ok(views.html.wines.details(wine))
   }
 
+
+  def edit(id:Long) = Action { implicit request =>
+    println("editing .... id " + id)
+    val wineToEdit = Wine.findById(id)
+    val editWineForm = wineForm.fill(wineToEdit)
+    println(editWineForm.data)
+    editWineForm.fold(
+      hasErrors = { form =>
+        println(form.data)
+        Redirect(routes.Wines.list()).flashing(Flash(form.data) + ("error" -> Messages("validation.errors")))
+      },
+      success = { newWine =>
+        Ok(views.html.wines.editWine(editWineForm))
+      }
+    )
+
+  }
+
+
+
   def save = Action { implicit request =>
     val newWineForm = wineForm.bindFromRequest()
 
