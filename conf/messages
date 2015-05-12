@@ -28,3 +28,9 @@ wines.delete.success=Successfully deleted wine {0}
 wines.delete.error=Error occurred deleting wine {0}
 wines.list.navigation=Wines
 validation.errors=Please correct the errors in the form.
+
+
+constraint.required=*
+format.numeric=*
+format.real=
+format.date=('yyyy-MM-dd')
