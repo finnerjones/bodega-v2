@@ -13,3 +13,9 @@ div.screenshot {
     width:98%;
     padding:10px;
     }
+
+table tbody tr td {
+    font-famiy: Helvetica;
+    font-size: 10pt;
+    padding:5px;
+}

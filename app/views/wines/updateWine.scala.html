@@ -4,34 +4,51 @@
 
 @main(Messages("wines.form")) {
 
-    <h2>@Messages("wines.form")</h2>
+<h2>@Messages("wines.form")</h2>
 
-    @helper.form(action = routes.Wines.update()) {
-        <fieldset>
-            <legend>
-                @Messages("wines.details", Messages("wines.update"))
-            </legend>
-            <input type="hidden" name="wineId" value='@wineForm.data("wineId")'>
-            @helper.inputText(wineForm("wineName"))
-            @helper.inputText(wineForm("wineType"))
-            @helper.inputText(wineForm("wineCountry"))
-            @helper.inputText(wineForm("wineDescription"))
-            @helper.inputText(wineForm("wineYear"))
-            @helper.inputText(wineForm("wineGrapes"))
-            @helper.inputText(wineForm("winePrice"))
-            @helper.inputText(wineForm("wineCeller"))
-            @helper.inputText(wineForm("wineDenomOrigin"))
-            @helper.inputText(wineForm("wineVender"))
-            @helper.inputText(wineForm("wineAlcohol"))
-            @helper.inputText(wineForm("wineDatePurchased"))
-            @helper.inputText(wineForm("wineDateOpened"))
-            @helper.inputText(wineForm("wineDateInserted"))
-            @helper.inputText(wineForm("wineDateLastModified"))
-            @helper.inputText(wineForm("wineComments"))
-        </fieldset>
-        <p>
-            <input type="submit" class="btn primary" value='@Messages("wines.update.submit")'>
-        </p>
-    }
+@helper.form(action = routes.Wines.update()) {
+<fieldset>
+    <input type="hidden" name="wineId" value='@wineForm.data("wineId")'>
+    <table>
+        <tbody>
+        <tr>
+            <td>@helper.inputText(wineForm("wineName"), 'size -> 10)</td>
+            <td>@helper.inputText(wineForm("wineType"))</td>
+        </tr>
+        <tr>
+            <td>@helper.inputText(wineForm("wineCountry"))</td>
+            <td>@helper.textarea(wineForm("wineDescription"))</td>
+        </tr>
+        <tr>
+            <td>@helper.inputText(wineForm("wineYear"))</td>
+            <td>@helper.inputText(wineForm("wineGrapes"))</td>
+        </tr>
+        <tr>
+            <td>@helper.inputText(wineForm("winePrice"))</td>
+            <td>@helper.inputText(wineForm("wineCeller"))</td>
+        </tr>
+        <tr>
+            <td>@helper.inputText(wineForm("wineDenomOrigin"))</td>
+            <td>@helper.inputText(wineForm("wineVender"))</td>
+        </tr>
+        <tr>
+            <td>@helper.inputText(wineForm("wineAlcohol"))</td>
+            <td>@helper.inputText(wineForm("wineDatePurchased"))</td>
+        </tr>
+        <tr>
+            <td>@helper.inputText(wineForm("wineDateOpened"))</td>
+            <td>@helper.inputDate(wineForm("wineDateInserted"))</td>
+        </tr>
+        <tr>
+            <td>@helper.inputText(wineForm("wineDateLastModified"))</td>
+            <td>@helper.inputText(wineForm("wineComments"))</td>
+        </tr>
+        </tbody>
+    </table>
+</fieldset>
+<p>
+    <input type="submit" class="btn primary" value='@Messages("wines.update.submit")'>
+</p>
+}
 
 }
