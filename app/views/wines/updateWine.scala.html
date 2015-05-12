@@ -11,7 +11,7 @@
             <legend>
                 @Messages("wines.details", Messages("wines.update"))
             </legend>
-            @helper.inputText(wineForm("wineId"))
+            <input type="hidden" name="wineId" value='@wineForm.data("wineId")'>
             @helper.inputText(wineForm("wineName"))
             @helper.inputText(wineForm("wineType"))
             @helper.inputText(wineForm("wineCountry"))

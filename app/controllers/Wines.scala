@@ -15,7 +15,7 @@ import play.api.mvc.Flash
 object Wines extends Controller {
 
 
-  private val wineForm: Form[Wine] = Form(
+  private val addWineForm: Form[Wine] = Form(
     mapping(
       "wineId" -> ignored(0L),
       "wineName" -> nonEmptyText,
@@ -37,7 +37,7 @@ object Wines extends Controller {
     )(Wine.apply)(Wine.unapply)
   )
 
-  private val wineUpdateForm: Form[Wine] = Form(
+  private val updateWineForm: Form[Wine] = Form(
     mapping(
       "wineId" -> longNumber,
       "wineName" -> nonEmptyText,
@@ -72,23 +72,22 @@ object Wines extends Controller {
 
 
   def edit(id:Long) = Action { implicit request =>
-    val wineToEdit = Wine.findById(id)
-    val editWineForm = wineForm.fill(wineToEdit)
-    editWineForm.fold(
+    val wine = Wine.findById(id)
+    val wineToEdit = updateWineForm.fill(wine)
+    wineToEdit.fold(
       hasErrors = { form =>
         Redirect(routes.Wines.list()).flashing(Flash(form.data) + ("error" -> Messages("validation.errors")))
       },
       success = { newWine =>
-        Ok(views.html.wines.updateWine(editWineForm))
+        Ok(views.html.wines.updateWine(wineToEdit))
       }
     )
 
   }
 
   def update = Action { implicit request =>
-    val updateWineForm = wineUpdateForm.bindFromRequest()
-    println("I am in wines update ....." + updateWineForm.data)
-    updateWineForm.fold(
+    val wineToUpdate = updateWineForm.bindFromRequest()
+    wineToUpdate.fold(
       hasErrors = { form =>
         Redirect(routes.Wines.update()).flashing(Flash(form.data) + ("error" -> Messages("validation.errors")))
       },
@@ -102,9 +101,9 @@ object Wines extends Controller {
 
 
   def save = Action { implicit request =>
-    val newWineForm = wineForm.bindFromRequest()
+    val newWine = addWineForm.bindFromRequest()
 
-    newWineForm.fold(
+    newWine.fold(
       hasErrors = { form =>
         Redirect(routes.Wines.newWine()).flashing(Flash(form.data) + ("error" -> Messages("validation.errors")))
       },
@@ -118,9 +117,9 @@ object Wines extends Controller {
 
   def newWine = Action { implicit request =>
     val form = if (flash.get("error").isDefined)
-      wineForm.bind(flash.data)
+      addWineForm.bind(flash.data)
     else
-      wineForm
+      addWineForm
 
     Ok(views.html.wines.editWine(form))
   }
@@ -135,7 +134,6 @@ object Wines extends Controller {
     } else {
       val message = Messages("wines.delete.error", wine.wineName)
       Redirect(routes.Wines.list).flashing("success" -> message)
-
     }
   }
 
