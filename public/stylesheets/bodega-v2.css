@@ -6,16 +6,44 @@
 
 div.screenshot {
     width:90%;
-    margin:20px;
+    margin-left :auto;
+    margin-right : auto;
+    border : 1px solid #C0C0C0;
     background-color:#D0E7EF;
+    box-shadow: 10px 10px 5px grey;
     }
+
 .screenshot > .container {
-    width:98%;
-    padding:10px;
-    }
+    width: 70%;
+    padding: 1%;
+    margin-top : 1%;
+    margin-bottom : 1%;
+    margin-left : auto;
+    margin-right : auto;
+    float: middle;
+    border : 1px solid #C0C0C0;
+    background-color:#D0E7E0;
+    box-shadow: 5px 5px 5px grey;
+}
 
 table tbody tr td {
     font-famiy: Helvetica;
     font-size: 10pt;
-    padding:5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+input[type="text"] {
+    width: 80%;
+}
+
+input[type="date"] {
+    width: 45%;
+}
+
+.help-block {
+  color: #B00000;
 }
