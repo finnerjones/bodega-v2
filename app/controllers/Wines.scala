@@ -121,7 +121,7 @@ object Wines extends Controller {
     else
       addWineForm
 
-    Ok(views.html.wines.editWine(form))
+    Ok(views.html.wines.addWine(form))
   }
 
 

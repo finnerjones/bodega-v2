@@ -8,25 +8,43 @@
 
     @helper.form(action = routes.Wines.save()) {
         <fieldset>
-            <legend>
-                @Messages("wines.details", Messages("wines.new"))
-            </legend>
-            @helper.inputText(wineForm("wineName"))
-            @helper.inputText(wineForm("wineType"))
-            @helper.inputText(wineForm("wineCountry"))
-            @helper.inputText(wineForm("wineDescription"))
-            @helper.inputText(wineForm("wineYear"))
-            @helper.inputText(wineForm("wineGrapes"))
-            @helper.inputText(wineForm("winePrice"))
-            @helper.inputText(wineForm("wineCeller"))
-            @helper.inputText(wineForm("wineDenomOrigin"))
-            @helper.inputText(wineForm("wineVender"))
-            @helper.inputText(wineForm("wineAlcohol"))
-            @helper.inputText(wineForm("wineDatePurchased"))
-            @helper.inputText(wineForm("wineDateOpened"))
-            @helper.inputText(wineForm("wineDateInserted"))
-            @helper.inputText(wineForm("wineDateLastModified"))
-            @helper.inputText(wineForm("wineComments"))
+            <table>
+                <tbody>
+                <tr>
+                    <td>@inputText(wineForm("wineName"))</td>   <!-- in-line example -->
+                    <td>@inputText(wineForm("wineType"))</td>
+                    <td>@inputText(wineForm("wineCountry"))</td>
+                </tr>
+                <tr>
+                    <td>@select(field = wineForm("wineYear"), options = options(List("2015","2014","2013","2012","1999", "1998", "1997")) )</td>
+                    <td>@inputText(wineForm("wineDenomOrigin"))</td>
+                    <!-- http://en.wikipedia.org/wiki/List_of_grape_varieties  -->
+                    <td>@select(field = wineForm("wineGrapes"), options = options(List("Merlot","Tempranillo","Syrah/Shiraz")))</td>
+                </tr>
+                <tr>
+                    <td colspan="3">@textarea(wineForm("wineDescription"), 'style -> "width:100%" )</td>
+                </tr>
+                <tr>
+                    <td>@inputText(wineForm("winePrice"))</td>
+                    <td>@inputText(wineForm("wineCeller"))</td>
+                    <td>@inputText(wineForm("wineVender"))</td>
+                </tr>
+                <tr>
+                    <td>@inputText(wineForm("wineAlcohol"))</td>
+                    <td>@inputDate(wineForm("wineDatePurchased"))</td>
+                    <td>@inputDate(wineForm("wineDateOpened"))</td>
+                </tr>
+                <tr>
+                    <td colspan="3">@textarea(wineForm("wineComments"), 'style -> "width:100%" )</td>
+                </tr>
+                <tr>
+                    <td>@inputDate(wineForm("wineDateInserted"))</td>
+                    <td>@inputDate(wineForm("wineDateLastModified"))</td>
+                    <td></td>
+                </tr>
+
+                </tbody>
+            </table>
         </fieldset>
         <p>
             <input type="submit" class="btn primary" value='@Messages("wines.new.submit")'>
