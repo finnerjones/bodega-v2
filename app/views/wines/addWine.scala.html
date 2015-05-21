@@ -11,35 +11,37 @@
             <table>
                 <tbody>
                 <tr>
-                    <td>@inputText(wineForm("wineName"))</td>   <!-- in-line example -->
-                    <td>@inputText(wineForm("wineType"))</td>
-                    <td>@inputText(wineForm("wineCountry"))</td>
+                    <td>@inputText(wineForm("wineName"), '_label -> Messages("wine.name") )</td>
+                    <td>@inputText(wineForm("wineType"), '_label -> Messages("wine.type") )</td>
+                    <td>@inputText(wineForm("wineCountry"), '_label -> Messages("wine.country"))</td>
                 </tr>
                 <tr>
-                    <td>@select(field = wineForm("wineYear"), options = options(List("2015","2014","2013","2012","1999", "1998", "1997")) )</td>
-                    <td>@inputText(wineForm("wineDenomOrigin"))</td>
+                    <td>@select(field = wineForm("wineYear"), options = options(List(Messages("select.option.select"),"2015","2014","2013","2012","1999", "1998", "1997"))
+                        , '_label -> Messages("wine.year") )</td>
+                    <td>@inputText(wineForm("wineDenomOrigin"), '_label -> Messages("wine.do"))</td>
                     <!-- http://en.wikipedia.org/wiki/List_of_grape_varieties  -->
-                    <td>@select(field = wineForm("wineGrapes"), options = options(List("Merlot","Tempranillo","Syrah/Shiraz")))</td>
+                    <td>@select(field = wineForm("wineGrapes"), options = options(List(Messages("select.option.select"), "Merlot","Tempranillo","Syrah/Shiraz"))
+                        , '_label -> Messages("wine.grapes"))</td>
                 </tr>
                 <tr>
-                    <td colspan="3">@textarea(wineForm("wineDescription"), 'style -> "width:100%" )</td>
+                    <td colspan="3">@textarea(wineForm("wineDescription"), 'style -> "width:100%", '_label -> Messages("wine.description") )</td>
                 </tr>
                 <tr>
-                    <td>@inputText(wineForm("winePrice"))</td>
-                    <td>@inputText(wineForm("wineCeller"))</td>
-                    <td>@inputText(wineForm("wineVender"))</td>
+                    <td>@inputText(wineForm("winePrice"), '_label -> Messages("wine.price") )</td>
+                    <td>@inputText(wineForm("wineCeller"), '_label -> Messages("wine.celler") )</td>
+                    <td>@inputText(wineForm("wineVender"), '_label -> Messages("wine.vender") )</td>
                 </tr>
                 <tr>
-                    <td>@inputText(wineForm("wineAlcohol"))</td>
-                    <td>@inputDate(wineForm("wineDatePurchased"))</td>
-                    <td>@inputDate(wineForm("wineDateOpened"))</td>
+                    <td>@inputText(wineForm("wineAlcohol"), '_label -> Messages("wine.alcohol") )</td>
+                    <td>@inputDate(wineForm("wineDatePurchased"), '_label -> Messages("wine.date.purchased") )</td>
+                    <td>@inputDate(wineForm("wineDateOpened"), '_label -> Messages("wine.date.opened") )</td>
                 </tr>
                 <tr>
-                    <td colspan="3">@textarea(wineForm("wineComments"), 'style -> "width:100%" )</td>
+                    <td colspan="3">@textarea(wineForm("wineComments"), 'style -> "width:100%", '_label -> Messages("wine.comments")  )</td>
                 </tr>
                 <tr>
-                    <td>@inputDate(wineForm("wineDateInserted"))</td>
-                    <td>@inputDate(wineForm("wineDateLastModified"))</td>
+                    <td>@inputDate(wineForm("wineDateInserted"), '_label -> Messages("wine.date.inserted") )</td>
+                    <td>@inputDate(wineForm("wineDateLastModified"), '_label -> Messages("wine.date.last.modified") )</td>
                     <td></td>
                 </tr>
 

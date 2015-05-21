@@ -14,10 +14,25 @@ application.wine.cellar=Cellar
 application.wine.datePurchased=Date Purchased
 application.wine.dateOpened=Date Opened
 
+select.option.select=-- Select --
+
 wine.details=Details
 wine.name=Name
 wine.type=Type
 wine.year=Year
+wine.country=Country
+wine.do=Denomination
+wine.grapes=Grapes
+wine.description=Description
+wine.price=Price
+wine.celler=Celler
+wine.vender=Vender
+wine.alcohol=Vol %
+wine.date.purchased=Purchased
+wine.date.opened=Consumed
+wine.comments=Comments
+wine.date.inserted=Inserted
+wine.date.last.modified=Last Updated
 
 wines.form=Wine Details
 wines.new=(new)

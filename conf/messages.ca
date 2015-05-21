@@ -14,6 +14,26 @@ application.wine.cellar=Bodega
 application.wine.datePurchased=Fecha de Compra
 application.wine.dateOpened=Fecha de consumir
 
+select.option.select=-- Eligir --
+
+wine.details=Detalles
+wine.name=Nom
+wine.type=Tipo
+wine.year=Any
+wine.country=Pais
+wine.do=Denominació
+wine.grapes=Ulls
+wine.description=Descripció
+wine.price=Precio
+wine.celler=Celler
+wine.vender=Vendedero
+wine.alcohol=Vol %
+wine.date.purchased=Comprado
+wine.date.opened=Consumado
+wine.comments=Commentari
+wine.date.inserted=Añadido
+wine.date.last.modified=Modificado
+
 wine.details=Detalls
 wine.name=Nom
 wine.color=Color
