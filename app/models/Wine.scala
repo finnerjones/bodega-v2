@@ -216,4 +216,13 @@ object Wine {
       val updatedRows = SQL("DELETE FROM wine WHERE wine_id = {id}").on("id" -> id).executeUpdate()
       updatedRows == 1
     }
+
+
+  def years(): List[Int] =
+    DB.withConnection { implicit connection =>
+      val years:SqlQuery = SQL("select distinct wine_year from wine")
+      years().map( row =>
+         row[Int]("wine_year")).toList
+    }
+
 }

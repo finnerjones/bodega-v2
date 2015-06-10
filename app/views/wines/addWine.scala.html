@@ -1,4 +1,4 @@
-@(wineForm:Form[Wine])(implicit flash: Flash, lang: Lang)
+@(wineForm:Form[Wine], years:List[Int])(implicit flash: Flash, lang: Lang)
 @import helper._
 @import helper.twitterBootstrap._
 
@@ -16,25 +16,33 @@
                     <td>@inputText(wineForm("wineCountry"), '_label -> Messages("wine.country"))</td>
                 </tr>
                 <tr>
+                    <!--
+                        <td>
+                            <label for="wineYear">@Messages("wine.year")</label>
+                            <input id="wineYear" type="text" list="years" >
+                            <datalist id="years" >
+                                <option >- Select -</option>
+                                <option>1999</option>
+                                <option>2000</option>
+                                <option>2001</option>
+                                <option>2002</option>
+                                <option>2003</option>
+                            </datalist>
 
-                    <td>
-                        <label for="wineYear">@Messages("wine.year")</label>
-                        <input id="wineYear" type="text" list="years" >
-                        <datalist id="years" >
-                            <option >- Select -</option>
-                            <option>1999</option>
-                            <option>2000</option>
-                            <option>2001</option>
-                            <option>2002</option>
-                            <option>2003</option>
-                        </datalist>
 
-
-                    </td>
+                        </td>
+                        -->
                     <!--
                     <td>@select(field = wineForm("wineYear"), options = options(List(Messages("select.option.select"),"2015","2014","2013","2012","1999", "1998", "1997"))
                         , '_label -> Messages("wine.year") )</td>
                     -->
+                    <td>@inputText(wineForm("wineYear"), '_label -> Messages("wine.year"), 'list -> "years")
+                        <datalist id="years" >
+                            @for(year <- years) {
+                              <option>@year</option>
+                            }
+                        </datalist>
+                    </td>
                     <td>@inputText(wineForm("wineDenomOrigin"), '_label -> Messages("wine.do"))</td>
                     <!-- http://en.wikipedia.org/wiki/List_of_grape_varieties  -->
                     <td>@select(field = wineForm("wineGrapes"), options = options(List(Messages("select.option.select"), "Merlot","Tempranillo","Syrah/Shiraz"))

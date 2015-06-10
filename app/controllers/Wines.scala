@@ -94,7 +94,7 @@ object Wines extends Controller {
       success = { updateWine =>
         Wine.update(updateWine)
         val message = Messages("wines.update.success", updateWine.wineName)
-        Redirect(routes.Wines.list).flashing("success" -> message)
+        Redirect(routes.Wines.list()).flashing("success" -> message)
       }
     )
   }
@@ -110,7 +110,7 @@ object Wines extends Controller {
       success = { newWine =>
         Wine.add(newWine)
         val message = Messages("wines.new.success", newWine.wineName)
-        Redirect(routes.Wines.list).flashing("success" -> message)
+        Redirect(routes.Wines.list()).flashing("success" -> message)
       }
     )
   }
@@ -118,10 +118,12 @@ object Wines extends Controller {
   def newWine = Action { implicit request =>
     val form = if (flash.get("error").isDefined)
       addWineForm.bind(flash.data)
-    else
+    else {
       addWineForm
+    }
 
-    Ok(views.html.wines.addWine(form))
+    val years = Wine.years()
+    Ok(views.html.wines.addWine(form, years))
   }
 
 
@@ -130,10 +132,10 @@ object Wines extends Controller {
     val success = Wine.delete(id)
     if (success) {
       val message = Messages("wines.delete.success", wine.wineName)
-      Redirect(routes.Wines.list).flashing("success" -> message)
+      Redirect(routes.Wines.list()).flashing("success" -> message)
     } else {
       val message = Messages("wines.delete.error", wine.wineName)
-      Redirect(routes.Wines.list).flashing("success" -> message)
+      Redirect(routes.Wines.list()).flashing("success" -> message)
     }
   }
 
