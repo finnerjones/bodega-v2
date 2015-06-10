@@ -79,7 +79,8 @@ object Wines extends Controller {
         Redirect(routes.Wines.list()).flashing(Flash(form.data) + ("error" -> Messages("validation.errors")))
       },
       success = { newWine =>
-        Ok(views.html.wines.updateWine(wineToEdit))
+        val years = Wine.years()
+        Ok(views.html.wines.updateWine(wineToEdit, years))
       }
     )
 
