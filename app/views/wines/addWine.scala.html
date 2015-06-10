@@ -16,26 +16,6 @@
                     <td>@inputText(wineForm("wineCountry"), '_label -> Messages("wine.country"))</td>
                 </tr>
                 <tr>
-                    <!--
-                        <td>
-                            <label for="wineYear">@Messages("wine.year")</label>
-                            <input id="wineYear" type="text" list="years" >
-                            <datalist id="years" >
-                                <option >- Select -</option>
-                                <option>1999</option>
-                                <option>2000</option>
-                                <option>2001</option>
-                                <option>2002</option>
-                                <option>2003</option>
-                            </datalist>
-
-
-                        </td>
-                        -->
-                    <!--
-                    <td>@select(field = wineForm("wineYear"), options = options(List(Messages("select.option.select"),"2015","2014","2013","2012","1999", "1998", "1997"))
-                        , '_label -> Messages("wine.year") )</td>
-                    -->
                     <td>@inputText(wineForm("wineYear"), '_label -> Messages("wine.year"), 'list -> "years")
                         <datalist id="years" >
                             @for(year <- years) {
