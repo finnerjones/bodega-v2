@@ -1,4 +1,4 @@
-@(wineForm:Form[Wine], years:List[Int])(implicit flash: Flash, lang: Lang)
+@(wineForm:Form[Wine], years:List[Int], countries:List[String], grapes:List[String])(implicit flash: Flash, lang: Lang)
 @import helper._
 @import helper.twitterBootstrap._
 
@@ -13,7 +13,14 @@
                 <tr>
                     <td>@inputText(wineForm("wineName"), '_label -> Messages("wine.name") )</td>
                     <td>@inputText(wineForm("wineType"), '_label -> Messages("wine.type") )</td>
-                    <td>@inputText(wineForm("wineCountry"), '_label -> Messages("wine.country"))</td>
+                    <td>@inputText(wineForm("wineCountry"), '_label -> Messages("wine.country"), 'list -> "countries")
+                        <datalist id="countries">
+                            @for(country <- countries) {
+                              <option>@country</option>
+                            }
+                        </datalist>
+
+                    </td>
                 </tr>
                 <tr>
                     <td>@inputText(wineForm("wineYear"), '_label -> Messages("wine.year"), 'list -> "years")
@@ -25,8 +32,13 @@
                     </td>
                     <td>@inputText(wineForm("wineDenomOrigin"), '_label -> Messages("wine.do"))</td>
                     <!-- http://en.wikipedia.org/wiki/List_of_grape_varieties  -->
-                    <td>@select(field = wineForm("wineGrapes"), options = options(List(Messages("select.option.select"), "Merlot","Tempranillo","Syrah/Shiraz"))
-                        , '_label -> Messages("wine.grapes"))</td>
+                    <td>@inputText(wineForm("wineGrapes"), '_label -> Messages("wine.grapes"), 'list -> "grapes")
+                        <datalist id="grapes">
+                            @for(grape <- grapes) {
+                              <option>@grape</option>
+                            }
+                        </datalist>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="3">@textarea(wineForm("wineDescription"), 'style -> "width:100%", '_label -> Messages("wine.description") )</td>

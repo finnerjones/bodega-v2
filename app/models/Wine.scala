@@ -220,9 +220,27 @@ object Wine {
 
   def years(): List[Int] =
     DB.withConnection { implicit connection =>
-      val years:SqlQuery = SQL("select distinct wine_year from wine")
+      val years:SqlQuery = SQL("SELECT DISTINCT wine_year FROM wine")
       years().map( row =>
          row[Int]("wine_year")).toList
+    }
+
+
+  def countries(): List[String] =
+    DB.withConnection { implicit connection =>
+      val countries:SqlQuery = SQL("SELECT DISTINCT wine_country FROM wine")
+      countries().map( row =>
+        row[String]("wine_country")
+      ).toList
+    }
+
+
+  def grapes(): List[String] =
+    DB.withConnection { implicit connection =>
+      val grapes:SqlQuery = SQL("SELECT DISTINCT wine_grapes FROM wine")
+      grapes().map ( row =>
+        row[String]("wine_grapes")
+      ).toList
     }
 
 }

@@ -80,7 +80,9 @@ object Wines extends Controller {
       },
       success = { newWine =>
         val years = Wine.years()
-        Ok(views.html.wines.updateWine(wineToEdit, years))
+        val countries = Wine.countries()
+        val grapes = Wine.grapes()
+        Ok(views.html.wines.updateWine(wineToEdit, years, countries, grapes))
       }
     )
 
@@ -124,7 +126,9 @@ object Wines extends Controller {
     }
 
     val years = Wine.years()
-    Ok(views.html.wines.addWine(form, years))
+    val countries = Wine.countries()
+    val grapes = Wine.grapes()
+    Ok(views.html.wines.addWine(form, years, countries, grapes))
   }
 
 
