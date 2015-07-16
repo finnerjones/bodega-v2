@@ -1,0 +1,1 @@
+web: play start -DapplyEvolutions.default=true
