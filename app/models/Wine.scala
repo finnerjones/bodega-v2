@@ -235,12 +235,14 @@ object Wine {
     }
 
 
-  def grapes(): List[String] =
+  def grapes(): List[Option[String]] =
     DB.withConnection { implicit connection =>
       val grapes:SqlQuery = SQL("SELECT DISTINCT wine_grapes FROM wine")
+
       grapes().map ( row =>
-        row[String]("wine_grapes")
+        row[Option[String]]("wine_grapes")
       ).toList
+
     }
 
 }
