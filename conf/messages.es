@@ -13,6 +13,8 @@ application.wine.price=Precio
 application.wine.cellar=Bodega
 application.wine.datePurchased=Fecha de Compra
 application.wine.dateOpened=Fecha de consumir
+application.wine.tooltip.add=Añadir un vino nuevo
+application.wine.tooltip.list=Lista de vinos
 
 select.option.select=-- Eligir --
 
@@ -38,6 +40,9 @@ wine.details=Detalles
 wine.name=Nombre
 wine.color=Color
 wine.year=Año
+
+wine.tooltip.edit=Edit wine
+wine.tooltip.delete=Delete wine
 
 wines.form=Detalles del vino
 wines.new=(nuevo)

@@ -19,13 +19,19 @@
                         <li class="divider-vertical"></li>
                         <li >
                             <a href="@routes.Wines.newWine()">
-                                <img width="26px" height="26px" alt='@Messages("application.alt.add")' src='@routes.Assets.at("images/admin/add-item.png")' />
+                                <img width="26px" height="26px"
+                                     alt='@Messages("application.alt.add")'
+                                     src='@routes.Assets.at("images/admin/add-item.png")'
+                                     title='@Messages("application.wine.tooltip.add")' />
                             </a>
                         </li>
                         <li class="divider-vertical"></li>
                         <li >
                             <a href="@routes.Wines.list()">
-                                <img width="26px" height="23px" alt='@Messages("application.alt.list")' src='@routes.Assets.at("images/admin/list.png")' />
+                                <img width="26px" height="23px"
+                                     alt='@Messages("application.alt.list")'
+                                     src='@routes.Assets.at("images/admin/list.png")'
+                                     title='@Messages("application.wine.tooltip.list")' />
                             </a>
                         </li>
                         <li class="divider-vertical"></li>

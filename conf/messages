@@ -13,6 +13,8 @@ application.wine.price=Price
 application.wine.cellar=Cellar
 application.wine.datePurchased=Date Purchased
 application.wine.dateOpened=Date Opened
+application.wine.tooltip.add=Add a wine
+application.wine.tooltip.list=List of wines
 
 select.option.select=-- Select --
 
@@ -33,6 +35,10 @@ wine.date.opened=Consumed
 wine.comments=Comments
 wine.date.inserted=Inserted
 wine.date.last.modified=Last Updated
+
+wine.tooltip.edit=Edit wine
+wine.tooltip.delete=Delete wine
+
 
 wines.form=Wine Details
 wines.new=(new)

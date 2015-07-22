@@ -23,11 +23,15 @@
                 <td>@wine.winePrice</td>
                 <td>@wine.wineDatePurchased</td>
                 <td><a href="@controllers.routes.Wines.edit(wine.wineId)">
-                    <img alt='@Messages("application.alt.edit")' src='@routes.Assets.at("images/admin/edit.png")' />
+                    <img alt='@Messages("application.alt.edit")'
+                         src='@routes.Assets.at("images/admin/edit.png")'
+                         title='@Messages("wine.tooltip.edit")'/>
                     </a>
                 </td>
                 <td><a href="@controllers.routes.Wines.deleteWine(wine.wineId)">
-                    <img alt='@Messages("application.alt.delete")' src='@routes.Assets.at("images/admin/delete.jpg")' />
+                    <img alt='@Messages("application.alt.delete")'
+                         src='@routes.Assets.at("images/admin/delete.jpg")'
+                         title='@Messages("wine.tooltip.delete")'   />
                     </a>
                 </td>
 
