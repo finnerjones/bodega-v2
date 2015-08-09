@@ -12,7 +12,7 @@ import play.api.mvc.Flash
 /**
  * Created by finner on 19/01/2015.
  */
-object Wines extends Controller {
+object Wines extends Controller with CookieLang {
 
 
   private val addWineForm: Form[Wine] = Form(

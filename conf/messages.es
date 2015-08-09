@@ -61,3 +61,8 @@ constraint.required=*
 format.numeric=*
 format.real=
 format.date=('yyyy-MM-dd')
+
+languages=Language
+lang.es=Spanish
+lang.ca=Catalan
+lang.en=English

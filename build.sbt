@@ -11,3 +11,5 @@ libraryDependencies ++= Seq(
 )
 
 play.Project.playScalaSettings
+
+requireJs += "wines.js"

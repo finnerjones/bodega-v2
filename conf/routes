@@ -11,6 +11,8 @@ GET     /wines/:id                  controllers.Wines.show(id :Long)
 GET     /wines/delete/:id           controllers.Wines.deleteWine(id :Long)
 GET     /wines/edit/:id             controllers.Wines.edit(id :Long)
 POST    /wines/update               controllers.Wines.update
+POST    /locale                     controllers.Wines.changeLocale()
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

@@ -1,7 +1,26 @@
-@()
+@(implicit l:Lang)
 <div id="navigation">
     <ul>
         <li><a href="@routes.Wines.newWine"><img alt='@Messages("application.alt.add")' src='@routes.Assets.at("images/admin/add-item.png")' /></a></li>
         <li><a href="@routes.Wines.list">List</a></li>
+        <li>yohooooooooooooo!!!!!!!</li>
+
+        <!--
+
+
+        @helper.form(action = routes.Wines.changeLocale(), 'class -> "change-locale") {
+        <label>@Messages("languages")
+            <select name="locale">
+                @play.api.i18n.Lang.availables(play.api.Play.current).map { lang =>
+                <option value="@lang.code" @(if(l.code == lang.code) "selected")>@Messages("lang." + lang.code)</option>
+                }
+            </select>
+        </label>
+        }
+
+
+-->
+
     </ul>
+
 </div>
