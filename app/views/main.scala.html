@@ -1,4 +1,4 @@
-@(title: String)(content: Html)(implicit flash:Flash, lang:Lang)
+@(title: String)(content: Html)(implicit flash:Flash, l:Lang)
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,18 +35,6 @@
                             </a>
                         </li>
                         <li class="divider-vertical"></li>
-
-                        @helper.form(action = routes.Wines.changeLocale(), 'class -> "change-locale") {
-                        <label>@Messages("languages")
-                            <select name="locale">
-                                @play.api.i18n.Lang.availables(play.api.Play.current).map { lang =>
-                                <option value="@lang.code" @(if(lang.code == lang.code) "selected")>@Messages("lang." + lang.code)</option>
-                                }
-                            </select>
-                        </label>
-                        }
-                        @helper.requireJs(module = routes.Assets.at("javascripts/wines").url, core = routes.Assets.at("javascripts/require.js").url)
-
                     </ul>
                 </div>
             </div>
@@ -68,5 +56,19 @@
             @debug()
         </div>
 </div>
+<footer>
+
+    @helper.form(action = routes.Wines.changeLocale(), 'class -> "change-locale") {
+    <label>@Messages("languages")
+        <select name="locale">
+            @play.api.i18n.Lang.availables(play.api.Play.current).map { lang =>
+            <option value="@lang.code" @(if(l.code == lang.code) "selected")>@Messages("lang." + lang.code)</option>
+            }
+        </select>
+    </label>
+    }
+    @helper.requireJs(module = routes.Assets.at("javascripts/wines").url, core = routes.Assets.at("javascripts/require.js").url)
+
+</footer>
 </body>
 </html>
