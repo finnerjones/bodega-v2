@@ -1,8 +1,8 @@
-## Bodega (version 2)
+# Bodega (version 2)
 
 A Scala web application which lets you add / edit details about a wine you like and list all wines from the database.
  
-# Build application
+## Build application
 
 From project root:
 
