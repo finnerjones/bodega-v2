@@ -4,6 +4,16 @@
 
 */
 
+body, p, label {
+    font-size:12px;
+}
+
+
+select, input[type="file"] {
+  height: 28px;
+  font-size: 10px;
+}
+
 div.screenshot {
     width:90%;
     margin-left :auto;
@@ -11,7 +21,7 @@ div.screenshot {
     border : 1px solid #C0C0C0;
     background-color:#D0E7EF;
     box-shadow: 10px 10px 5px grey;
-    }
+}
 
 .screenshot > .container {
     width: 85%;
@@ -50,12 +60,32 @@ table {
 table tbody tr td {
     font-famiy: Helvetica;
     font-size: 10pt;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
     padding-right: 15px;
     padding-left: 15px;
 }
 
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  font-size: 12px;
+}
 
 input[type="text"] {
     width: 80%;
@@ -67,4 +97,10 @@ input[type="date"] {
 
 .help-block {
   color: #B00000;
+}
+
+.photo {
+  height: 50px;
+  width: 50px;
+  border: solid 1px #DFE7EF;
 }

@@ -4,7 +4,13 @@
 
 @main(Messages("wines.form")) {
 
-    <h2>@Messages("wines.form")</h2>
+    <table>
+        <tbody>
+            <td><h3>@Messages("wines.form")</h3></td>
+            <td><img class="photo" src='@routes.Assets.at("images/no-photo.jpg")' alt='@Messages("wine.photo")' height="60px" width="60px"></td>
+            <td><label for="photo">Add photo</label><input id="photo" type="file" name="photo"/></td>
+        </tbody>
+    </table>
 
     @helper.form(action = routes.Wines.save()) {
         <fieldset>
@@ -56,12 +62,6 @@
                 <tr>
                     <td colspan="3">@textarea(wineForm("wineComments"), 'style -> "width:100%", '_label -> Messages("wine.comments")  )</td>
                 </tr>
-                <tr>
-                    <td>@inputDate(wineForm("wineDateInserted"), '_label -> Messages("wine.date.inserted") )</td>
-                    <td>@inputDate(wineForm("wineDateLastModified"), '_label -> Messages("wine.date.last.modified") )</td>
-                    <td></td>
-                </tr>
-
                 </tbody>
             </table>
         </fieldset>
