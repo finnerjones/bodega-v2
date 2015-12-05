@@ -8,7 +8,7 @@
     <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/bodega-v2.css")'>
 </head>
 <body>
-<div class="screenshot">
+
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -55,7 +55,6 @@
             @content
             @debug()
         </div>
-</div>
 <footer>
 
     @helper.form(action = routes.Wines.changeLocale(), 'class -> "change-locale") {
