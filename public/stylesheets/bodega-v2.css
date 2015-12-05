@@ -8,7 +8,6 @@ body, p, label {
     font-size:12px;
 }
 
-
 select, input[type="file"] {
   height: 28px;
   font-size: 10px;
@@ -21,6 +20,10 @@ div.screenshot {
     border : 1px solid #C0C0C0;
     background-color:#D0E7EF;
     box-shadow: 10px 10px 5px grey;
+}
+
+.main {
+   padding-top:100px;
 }
 
 .screenshot > .container {
