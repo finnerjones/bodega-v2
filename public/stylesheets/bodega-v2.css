@@ -4,6 +4,10 @@
 
 */
 
+body {
+    padding-top: 70px;
+}
+
 body, p, label {
     font-size:12px;
 }
@@ -21,9 +25,6 @@ div.screenshot {
     background-color:#D0E7EF;
     box-shadow: 10px 10px 5px grey;
 }
-
-.main {
-   padding-top:100px;
 }
 
 .screenshot > .container {
