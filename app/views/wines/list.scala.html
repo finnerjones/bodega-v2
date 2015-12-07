@@ -22,7 +22,7 @@
        @for(wine <- wines) {
         <div class="col-xs-12">
             <div class="media-left media-middle">
-                <a href="#">
+                <a href="@controllers.routes.Wines.edit(wine.wineId)">
                     <img class="media-object img-thumbnail"
                          src='@routes.Assets.at("images/wine-thmb.jpg")' alt="wine">
                 </a>
