@@ -7,10 +7,11 @@
 body {
     padding-top: 70px;
     background-color:#F2F2F2;
+    font-famiy: "Varela Round,sans-serif";
 }
 
 body, p, label {
-    font-size:12px;
+    font-size:16px;
 }
 
 select, input[type="file"] {

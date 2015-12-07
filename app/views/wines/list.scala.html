@@ -7,16 +7,18 @@
        @for(wine <- wines) {
         <div class="col-md-12">
             <div class="media-left media-middle">
-                <a href="@controllers.routes.Wines.edit(wine.wineId)">
+                <a href="@controllers.routes.Wines.show(wine.wineId)">
                     <img class="media-object img-thumbnail"
                          src='@routes.Assets.at("images/wine-thmb.jpg")' alt="wine">
                 </a>
             </div>
             <div class="media-body">
-               <h2 class="media-heading">@wine.wineName
-                    <span class="label label-danger">@wine.wineYear</span>
+               <div class="media-heading">
+                    <h2>@wine.wineName</h2>
+                    <span class="label label-info">@wine.wineYear</span>
                     <span class="label label-danger">@wine.wineType</span>
-                    <span class="badge">@wine.winePrice Eur</span></h2>
+                    <span class="badge">@wine.winePrice Eur</span>
+               </div>
                 <p>@wine.wineCountry, @wine.wineDenomOrigin</p>
             </div>
             <div class="col-md-12"><hr></div>

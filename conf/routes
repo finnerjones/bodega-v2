@@ -10,6 +10,7 @@ GET     /wines/new                  controllers.Wines.newWine
 GET     /wines/:id                  controllers.Wines.show(id :Long)
 GET     /wines/delete/:id           controllers.Wines.deleteWine(id :Long)
 GET     /wines/edit/:id             controllers.Wines.edit(id :Long)
+GET     /wines/show/:id             controllers.Wines.show(id :Long)
 POST    /wines/update               controllers.Wines.update
 POST    /locale                     controllers.Wines.changeLocale()
 
