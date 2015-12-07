@@ -16,22 +16,35 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="@routes.Wines.newWine()">
-                        <img width="26px" height="26px"
-                             alt='@Messages("application.alt.add")'
-                             src='@routes.Assets.at("images/admin/add-item.png")'
-                             title='@Messages("application.wine.tooltip.add")' />
-                        </a>
-                    </li>
                     <li >
-                        <a href="@routes.Wines.list()">
-                            <img width="26px" height="23px"
-                                 alt='@Messages("application.alt.list")'
-                                 src='@routes.Assets.at("images/admin/list.png")'
-                                 title='@Messages("application.wine.tooltip.list")' />
+                        <a href="@routes.Wines.list()"
+                           title='@Messages("application.wine.tooltip.list")'>
+                            <span class="glyphicon glyphicon-th-list"> </span>
                         </a>
                      </li>
+                    <li>
+                        <a href="@routes.Wines.newWine()"
+                           title='@Messages("application.wine.tooltip.add")'>
+                            <span class="glyphicon glyphicon-plus"> </span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="navbar-form" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Cannot Search Yet...">
+						        <span class="input-group-btn">
+							        <button type="submit" class="btn btn-default">
+								        <span class="glyphicon glyphicon-search">
+									        <span class="sr-only">Search...</span>
+								        </span>
+                                    </button>
+						        </span>
+                            </div>
+                        </form>
+                    </li>
+
                 </ul>
             </div>
         </div>
