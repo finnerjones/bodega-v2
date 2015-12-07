@@ -4,10 +4,14 @@
 
 */
 
+body {
+    padding-top: 70px;
+    background-color:#F2F2F2;
+}
+
 body, p, label {
     font-size:12px;
 }
-
 
 select, input[type="file"] {
   height: 28px;
@@ -21,6 +25,7 @@ div.screenshot {
     border : 1px solid #C0C0C0;
     background-color:#D0E7EF;
     box-shadow: 10px 10px 5px grey;
+}
 }
 
 .screenshot > .container {
@@ -103,4 +108,10 @@ input[type="date"] {
   height: 50px;
   width: 50px;
   border: solid 1px #DFE7EF;
+}
+
+hr {
+  height: 1px;
+  background-color:#cccccc;
+
 }

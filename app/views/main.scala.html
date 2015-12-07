@@ -3,42 +3,53 @@
 <html>
 <head>
     <title>@title</title>
-    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/bootstrap.css")'>
+    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/bootstrap-3-3-5.css")'>
     <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/main.css")'>
     <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/bodega-v2.css")'>
 </head>
 <body>
-<div class="screenshot">
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="@routes.Application.index()">
-                        @Messages("application.name")
-                    </a>
-                    <ul class="nav">
-                        <li class="divider-vertical"></li>
-                        <li >
-                            <a href="@routes.Wines.newWine()">
-                                <img width="26px" height="26px"
-                                     alt='@Messages("application.alt.add")'
-                                     src='@routes.Assets.at("images/admin/add-item.png")'
-                                     title='@Messages("application.wine.tooltip.add")' />
-                            </a>
-                        </li>
-                        <li class="divider-vertical"></li>
-                        <li >
-                            <a href="@routes.Wines.list()">
-                                <img width="26px" height="23px"
-                                     alt='@Messages("application.alt.list")'
-                                     src='@routes.Assets.at("images/admin/list.png")'
-                                     title='@Messages("application.wine.tooltip.list")' />
-                            </a>
-                        </li>
-                        <li class="divider-vertical"></li>
-                    </ul>
-                </div>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="@routes.Application.index()">@Messages("application.name")</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="@routes.Wines.list()"
+                           title='@Messages("application.wine.tooltip.list")'>
+                            <span class="glyphicon glyphicon-th-list"> </span>
+                        </a>
+                     </li>
+                    <li>
+                        <a href="@routes.Wines.newWine()"
+                           title='@Messages("application.wine.tooltip.add")'>
+                            <span class="glyphicon glyphicon-plus"> </span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="navbar-form" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Cannot Search Yet...">
+						        <span class="input-group-btn">
+							        <button type="submit" class="btn btn-default">
+								        <span class="glyphicon glyphicon-search">
+									        <span class="sr-only">Search...</span>
+								        </span>
+                                    </button>
+						        </span>
+                            </div>
+                        </form>
+                    </li>
+
+                </ul>
             </div>
         </div>
+    </nav>
+
 
         <div class="container">
             @if(flash.get("success").isDefined) {
@@ -52,23 +63,26 @@
                 @flash.get("error")
             </div>
             }
+
             @content
-            @debug()
+            <!--@debug()-->
         </div>
-</div>
-<footer>
 
-    @helper.form(action = routes.Wines.changeLocale(), 'class -> "change-locale") {
-    <label>@Messages("languages")
-        <select name="locale">
-            @play.api.i18n.Lang.availables(play.api.Play.current).map { lang =>
-            <option value="@lang.code" @(if(l.code == lang.code) "selected")>@Messages("lang." + lang.code)</option>
-            }
-        </select>
-    </label>
-    }
-    @helper.requireJs(module = routes.Assets.at("javascripts/wines").url, core = routes.Assets.at("javascripts/require.js").url)
+        <!--
+        <footer>
 
-</footer>
+        @helper.form(action = routes.Wines.changeLocale(), 'class -> "change-locale") {
+        <label>@Messages("languages")
+            <select name="locale">
+                @play.api.i18n.Lang.availables(play.api.Play.current).map { lang =>
+                <option value="@lang.code" @(if(l.code == lang.code) "selected")>@Messages("lang." + lang.code)</option>
+                }
+            </select>
+        </label>
+        }
+        @helper.requireJs(module = routes.Assets.at("javascripts/wines").url, core = routes.Assets.at("javascripts/require.js").url)
+
+    </footer>
+-->
 </body>
 </html>

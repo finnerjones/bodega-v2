@@ -1,42 +1,30 @@
 @(wines: List[Wine])(implicit flash: Flash, lang: Lang)
 @main(Messages("application.name")) {
-    <table class="wine">
-        <tr>
-            <th>@Messages("application.wine.name")</th>
-            <th>@Messages("application.wine.type")</th>
-            <th>@Messages("application.wine.year")</th>
-            <th>@Messages("application.wine.country")</th>
-            <th>@Messages("application.wine.denomination")</th>
-            <th>@Messages("application.wine.price")</th>
-            <th>@Messages("application.wine.datePurchased")</th>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-        </tr>
 
-        @for(wine <- wines) {
-            <tr>
-                <td>@wine.wineName</td>
-                <td>@wine.wineType</td>
-                <td>@wine.wineYear</td>
-                <td>@wine.wineCountry</td>
-                <td>@wine.wineDenomOrigin</td>
-                <td>@wine.winePrice</td>
-                <td>@wine.wineDatePurchased</td>
-                <td><a href="@controllers.routes.Wines.edit(wine.wineId)">
-                    <img alt='@Messages("application.alt.edit")'
-                         src='@routes.Assets.at("images/admin/edit.png")'
-                         title='@Messages("wine.tooltip.edit")'/>
-                    </a>
-                </td>
-                <td><a href="@controllers.routes.Wines.deleteWine(wine.wineId)">
-                    <img alt='@Messages("application.alt.delete")'
-                         src='@routes.Assets.at("images/admin/delete.jpg")'
-                         title='@Messages("wine.tooltip.delete")'   />
-                    </a>
-                </td>
-
-            </tr>
+<div class="row row-content">
+    <ul class="media-list">
+    <li class="media">
+       @for(wine <- wines) {
+        <div class="col-md-12">
+            <div class="media-left media-middle">
+                <a href="@controllers.routes.Wines.edit(wine.wineId)">
+                    <img class="media-object img-thumbnail"
+                         src='@routes.Assets.at("images/wine-thmb.jpg")' alt="wine">
+                </a>
+            </div>
+            <div class="media-body">
+               <h2 class="media-heading">@wine.wineName
+                    <span class="label label-danger">@wine.wineYear</span>
+                    <span class="label label-danger">@wine.wineType</span>
+                    <span class="badge">@wine.winePrice Eur</span></h2>
+                <p>@wine.wineCountry, @wine.wineDenomOrigin</p>
+            </div>
+            <div class="col-md-12"><hr></div>
+        </div>
         }
-    </table>
+    </li>
+    </ul>
+</div>
+
 
 }

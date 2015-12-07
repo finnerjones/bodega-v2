@@ -19,19 +19,23 @@ div.screenshot {
     margin:20px;
     background-color:#D0E7EF;
     }
+/*!
 .navbar-fixed-top .navbar-inner {
     padding-left:20px;
     }
 .navbar .nav > li > a {
     color:#bbb;
     }
+*/
 .screenshot > .container {
     width:760px;
     padding:20px;
     }
+/*!
 .navbar-fixed-top, .navbar-fixed-bottom {
     position:relative;
     }
+·/
 h1 {
     font-size:125%;
     }
