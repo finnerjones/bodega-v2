@@ -6,6 +6,7 @@
 
 body {
     padding-top: 70px;
+    background-color:#F2F2F2;
 }
 
 body, p, label {
@@ -107,4 +108,10 @@ input[type="date"] {
   height: 50px;
   width: 50px;
   border: solid 1px #DFE7EF;
+}
+
+hr {
+  height: 1px;
+  background-color:#cccccc;
+
 }
