@@ -12,3 +12,7 @@ URL on localhost
  
     http://localhost:9000/wines
     
+## Deploy to Heroku
+
+    git push heroku master
+    
