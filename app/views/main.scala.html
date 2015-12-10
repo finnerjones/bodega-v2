@@ -2,20 +2,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head
+         content must come *after* these tags -->
+
     <title>@title</title>
-    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/bootstrap-3-3-5.css")'>
-    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/bodega-v2.css")'>
+    <link rel="stylesheet" href='@routes.Assets.at("stylesheets/bootstrap-3-3-5.css")'>
+    <link rel="stylesheet" href='@routes.Assets.at("stylesheets/bodega-v2.css")'>
+    <link rel="stylesheet" href='@routes.Assets.at("stylesheets/font-awesome.min.css")'>
+    <link  rel="stylesheet"href='@routes.Assets.at("stylesheets/bootstrap-social.css")'>
+
 </head>
 <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="@routes.Application.index()">@Messages("application.name")</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@routes.Application.index()">@Messages("application.name")</a>
             </div>
-            <div>
+            <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li >
+                    <li>
                         <a href="@routes.Wines.list()"
                            title='@Messages("application.wine.tooltip.list")'>
                             <span class="glyphicon glyphicon-th-list"> </span>
@@ -49,39 +65,74 @@
         </div>
     </nav>
 
+    <header class="jumbotron">
+
+        <!-- Main component for a primary marketing message or call to action -->
 
         <div class="container">
-            @if(flash.get("success").isDefined) {
-            <div class="alert alert-success">
-                @flash.get("success")
+            <div class="row row-header">
+                <div class="col-xs-12 col-sm-12">
+                    <h1>Bodega</h1>
+                    <p>Keeping track</p>
+                    <p>of your favorite wines.</p>
+                </div>
             </div>
-            }
-
-            @if(flash.get("error").isDefined) {
-            <div class="alert alert-error">
-                @flash.get("error")
-            </div>
-            }
-
-            @content
-            <!--@debug()-->
         </div>
+    </header>
 
-        <!--
-        <footer>
 
-        @helper.form(action = routes.Wines.changeLocale(), 'class -> "change-locale") {
-        <label>@Messages("languages")
-            <select name="locale">
-                @play.api.i18n.Lang.availables(play.api.Play.current).map { lang =>
-                <option value="@lang.code" @(if(l.code == lang.code) "selected")>@Messages("lang." + lang.code)</option>
-                }
-            </select>
-        </label>
+    <div class="container">
+        @if(flash.get("success").isDefined) {
+        <div class="alert alert-success">
+            @flash.get("success")
+        </div>
         }
-        @helper.requireJs(module = routes.Assets.at("javascripts/wines").url, core = routes.Assets.at("javascripts/require.js").url)
 
+        @if(flash.get("error").isDefined) {
+        <div class="alert alert-error">
+            @flash.get("error")
+        </div>
+        }
+        @content
+        <!--@debug()-->
+    </div>
+
+    <footer class="row-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="http://www.finnerjones.com"><i class="fa fa-angle-double-right"></i> finnerjones</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-sm-5">
+                    <ul class="list-unstyled">
+                        <li>Powered by:</li>
+                        <li><a href="https://www.playframework.com/"> Play Framework</a></li>
+                        <li><a href="http://www.scala-lang.org/"> Scala</a>
+                        <li><a href="http://getbootstrap.com/css/"> Bootstrap</a>
+                        <li><a href="http://glyphicons.com/"> Glyphicons</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="nav navbar-nav" style="padding: 40px 10px;">
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.es/in/seamusfinn"><i class="fa fa-linkedin"></i></a>
+                        <a class="btn btn-social-icon" href="mailto:finnseamus&#64;gmail.com"><i class="fa fa-envelope-o"></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <p style="padding:10px;"></p>
+                    <p align=center>&copy; Copyright 2015 Bodega V2</p>
+                </div>
+            </div>
+        </div>
     </footer>
--->
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 </body>
 </html>
