@@ -54,6 +54,11 @@ wines.new.success=vino {0} añadido
 wines.delete.success=Vino {0} borrado
 wines.delete.error=Se ha ocurrido un error al borrar el vino {0}
 wines.list.navigation=Vinos
+wine.red=Tinto
+wine.white=Blanco
+wine.rose=Rosé
+wine.cava=Cava
+wine.champagne=Champagne
 validation.errors=Corrija los errores en el formulario.
 
 

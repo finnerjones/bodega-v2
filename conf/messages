@@ -50,6 +50,11 @@ wines.new.success=Successfully added wine {0}
 wines.delete.success=Successfully deleted wine {0}
 wines.delete.error=Error occurred deleting wine {0}
 wines.list.navigation=Wines
+wine.red=Red
+wine.white=White
+wine.rose=Rosé
+wine.cava=Cava
+wine.champagne=Champagne
 validation.errors=Please correct the errors in the form.
 
 

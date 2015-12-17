@@ -17,9 +17,17 @@
             <table>
                 <tbody>
                 <tr>
-                    <td>@inputText(wineForm("wineName"), '_label -> Messages("wine.name") )</td>
-                    <td>@inputText(wineForm("wineType"), '_label -> Messages("wine.type") )</td>
-                    <td>@inputText(wineForm("wineCountry"), '_label -> Messages("wine.country"), 'list -> "countries")
+                    <td><label for="wineName">@Messages("wine.name")</label> <input type="text" id="wineName" name="wineName" placeholder='@Messages("wine.name")'></td>
+                    <td><label for="wineType">@Messages("wine.type")</label>
+                        <select id="wineType" name="wineType">
+                            <option value="red">@Messages("wine.red")</option>
+                            <option value="white">@Messages("wine.white")</option>
+                            <option value="rose">@Messages("wine.rose")</option>
+                            <option value="cava">@Messages("wine.cava")</option>
+                            <option value="champagne">@Messages("wine.champagne")</option>
+                        </select>
+                    </td>
+                    <td><label for="wineCountry">@Messages("wine.country")</label> <input type="text" id="wineCountry" name="wineCountry" placeholder='@Messages("wine.country")' list="countries"></td>
                         <datalist id="countries">
                             @for(country <- countries) {
                               <option>@country</option>
@@ -29,8 +37,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>@inputText(wineForm("wineYear"), '_label -> Messages("wine.year"), 'list -> "years")
-                        <datalist id="years" >
+                    <td><label for="wineYear">@Messages("wine.year")</label> <input type="text" id="wineYear" name="wineYear" placeholder='@Messages("wine.year")' list="years"></td>
+                     <datalist id="years" >
                             @for(year <- years) {
                               <option>@year</option>
                             }
@@ -38,7 +46,8 @@
                     </td>
                     <td>@inputText(wineForm("wineDenomOrigin"), '_label -> Messages("wine.do"))</td>
                     <!-- http://en.wikipedia.org/wiki/List_of_grape_varieties  -->
-                    <td>@inputText(wineForm("wineGrapes"), '_label -> Messages("wine.grapes"), 'list -> "grapes")
+
+                    <td><label for="wineYear">@Messages("wine.grapes")</label> <input type="text" id="wineGrapes" name="wineGrapes" placeholder='@Messages("wine.grapes")' list="grapes"></td>
                         <datalist id="grapes">
                             @for(grape <- grapes) {
                               <option>@grape</option>
@@ -47,20 +56,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3">@textarea(wineForm("wineDescription"), 'style -> "width:100%", '_label -> Messages("wine.description") )</td>
+                    <td colspan="3"><label for="wineDescription">@Messages("wine.description")</label> <textarea style="width:90%" type="text" id="wineDescription" name="wineDescription" placeholder='@Messages("wine.description")'></textarea></td>
                 </tr>
                 <tr>
-                    <td>@inputText(wineForm("winePrice"), '_label -> Messages("wine.price") )</td>
-                    <td>@inputText(wineForm("wineCeller"), '_label -> Messages("wine.celler") )</td>
-                    <td>@inputText(wineForm("wineVender"), '_label -> Messages("wine.vender") )</td>
+                    <td><label for="winePrice">@Messages("wine.price")</label> <input type="text" id="winePrice" name="winePrice" placeholder='0.0'></td>
+                    <td><label for="wineCeller">@Messages("wine.celler")</label> <input type="text" id="wineCeller" name="wineCeller" placeholder='@Messages("wine.celler")'></td>
+                    <td><label for="wineVender">@Messages("wine.vender")</label> <input type="text" id="wineVender" name="wineVender" placeholder='@Messages("wine.vender")'></td>
                 </tr>
                 <tr>
-                    <td>@inputText(wineForm("wineAlcohol"), '_label -> Messages("wine.alcohol") )</td>
-                    <td>@inputDate(wineForm("wineDatePurchased"), '_label -> Messages("wine.date.purchased") )</td>
-                    <td>@inputDate(wineForm("wineDateOpened"), '_label -> Messages("wine.date.opened") )</td>
-                </tr>
+                    <td><label for="wineAlcohol">@Messages("wine.alcohol")</label> <input type="text" id="wineAlcohol" name="wineAlcohol" placeholder='0'></td>
+                    <td><label for="wineDatePurchased">@Messages("wine.date.purchased")</label> <input type="text" id="wineDatePurchased" name="wineDatePurchased" placeholder='(yyyy-MM-dd)'></td>
+                    <td><label for="wineDateOpened">@Messages("wine.date.opened")</label> <input type="text" id="wineDateOpened" name="wineDateOpened" placeholder='(yyyy-MM-dd)'></td>
+               </tr>
                 <tr>
-                    <td colspan="3">@textarea(wineForm("wineComments"), 'style -> "width:100%", '_label -> Messages("wine.comments")  )</td>
+                    <td colspan="3"><label for="wineComments">@Messages("wine.comments")</label> <textarea style="width:90%" type="text" id="wineComments" name="wineComments" placeholder='@Messages("wine.comments")'></textarea></td>
                 </tr>
                 </tbody>
             </table>
