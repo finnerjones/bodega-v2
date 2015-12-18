@@ -55,3 +55,35 @@ hr {
    height:100%;
    width:100%;
 }
+
+
+legend a {
+    color: inherit;
+}
+
+legend.legendStyle {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+fieldset.fsStyle {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: small;
+    font-weight: normal;
+    border: 1px solid #999999;
+    padding: 1px;
+    /*margin: 1px;*/
+}
+
+legend.legendStyle {
+    font-size: 90%;
+    color: #888888;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+legend {
+    width: auto;
+    border-bottom: 0px;
+}
+
