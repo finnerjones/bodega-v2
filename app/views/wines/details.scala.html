@@ -1,87 +1,114 @@
 @(wine :Wine)(implicit flash:Flash, lang: Lang)
 
 @main(Messages("wine.details", wine.wineName)) {
-
-
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-xs-12 col-sm-4">
         <h1>@wine.wineName</h1>
     </div>
-</div>
-
-<div class="row">
-
-    <div class="col-md-1" title='edit @wine.wineName'>
-        <div class="row">
-            <div class="col-md-12">
-                <a href="@controllers.routes.Wines.edit(wine.wineId)">
-                    <img class="media-object img-thumbnail"
-                         src='@routes.Assets.at("images/wine-thmb.jpg")'
-                         alt='@wine.wineName'
-                         title='edit @wine.wineName'>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-11">
-        <div class="row">
-            <div class="col-md-1">
-                <h4>@wine.wineYear</h4>
-            </div>
-            <div class="col-md-1">
-                <h4>@wine.wineCountry</h4>
-            </div>
-            <div class="col-md-8">
-                <h4>@wine.winePrice &euro;</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-10">
-                <h4>Description</h4>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-10">
-                @wine.wineDescription
-            </div>
-        </div>
+    <div class="col-xs-12 col-sm-8">
+        <p style="padding:20px;"></p>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-2">
-        @wine.wineAlcohol %
-    </div>
-    <div class="col-md-2">
-        @wine.wineVender V
-    </div>
-    <div class="col-md-2">
-        @wine.wineGrapes G
-    </div>
-    <div class="col-md-2">
-        @wine.wineCellar  C
-    </div>
-    <div class="col-md-2">
-        @wine.wineDenomOrigin  D
-    </div>
+        <div class="col-xs-12 col-sm-8">
 
-</div>
 
-<div class="row">
-    <div class="col-md-12">
-        <h5>Comments</h5>
-    </div>
-</div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <h4>@wine.wineYear, @wine.wineCountry</h4>
+                </div>
+                <div class="col-xs-12 col-sm-8">
+                    <p style="padding:20px;"></p>
+                </div>
+            </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="well">
-            @wine.wineComments
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-2">
+                            <a href="@controllers.routes.Wines.edit(wine.wineId)">
+                                <img class="media-object img-thumbnail image-responsive"
+                                     src='@routes.Assets.at("images/wine-thmb.jpg")'
+                                     alt='@wine.wineName'
+                                     title='edit @wine.wineName'>
+                            </a>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-10">
+                                    <h4>Description</h4>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-10">
+                                    @wine.wineDescription
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <h4>@Messages("wine.comments")</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="well">
+                        @wine.wineComments
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-    </div>
+
+
+
+     <div class="col-xs-12 col-sm-4">
+         <div class="panel panel-info">
+             <div class="panel-heading">
+                 <h3 class="panel-title"><i class="fa fa-info-circle fa-lg"></i> @Messages("wine.tooltip.details")</h3>
+             </div>
+             <div class="panel-body">
+                 <dl class="dl-horizontal">
+                     <dt>Grapes</dt>
+                     <dd>@wine.wineGrapes</dd>
+                     <dt>Price</dt>
+                     <dd>@wine.winePrice &euro;</dd>
+                     <dt>Vol %</dt>
+                     <dd>@wine.wineAlcohol</dd>
+                     <dt>Denomination</dt>
+                     <dd>@wine.wineDenomOrigin</dd>
+                     <dt>Vendor</dt>
+                     <dd>@wine.wineVender</dd>
+                     <dt>Cellar</dt>
+                     <dd>@wine.wineCellar</dd>
+                     <dt>@Messages("wine.date.opened")</dt>
+                     <dd>@wine.wineDateOpened</dd>
+                     <dt>@Messages("wine.date.purchased")</dt>
+                     <dd>@wine.wineDatePurchased</dd>
+                     <dt>@Messages("wine.date.inserted")</dt>
+                     <dd>@wine.wineDateInserted</dd>
+                 </dl>
+             </div>
+         </div>
+     </div>
+
+
+
+
+
 </div>
 
 
-}
+        }
