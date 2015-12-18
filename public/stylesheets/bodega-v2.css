@@ -10,99 +10,17 @@ body {
     font-famiy: "Varela Round,sans-serif";
 }
 
-body, p, label {
-    font-size:16px;
+.row-content {
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height:400px;
 }
+
 
 select, input[type="file"] {
   height: 28px;
   font-size: 10px;
-}
-
-div.screenshot {
-    width:90%;
-    margin-left :auto;
-    margin-right : auto;
-    border : 1px solid #C0C0C0;
-    background-color:#D0E7EF;
-    box-shadow: 10px 10px 5px grey;
-}
-}
-
-.screenshot > .container {
-    width: 85%;
-    padding: 1%;
-    margin-top : 1%;
-    margin-bottom : 1%;
-    margin-left : auto;
-    margin-right : auto;
-    float: middle;
-    border : 1px solid #C0C0C0;
-    background-color:#D0E7E0;
-    box-shadow: 5px 5px 5px grey;
-}
-
-.container > form {
-    float: none;
-    margin-left: auto;
-    margin-right:auto;
-}
-
-
-fieldset {
-    margin-left: auto;
-    margin-right:auto;
-}
-
-table {
-    width: 98%;
-    margin-left: auto;
-    margin-right:auto;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    border: 1px solid #C0C0C0;
-}
-
-table tbody tr td {
-    font-famiy: Helvetica;
-    font-size: 10pt;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-
-select,
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
-.uneditable-input {
-  font-size: 12px;
-}
-
-input[type="text"] {
-    width: 80%;
-}
-
-input[type="date"] {
-    width: 45%;
-}
-
-.help-block {
-  color: #B00000;
 }
 
 .photo {
