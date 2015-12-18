@@ -7,7 +7,7 @@
     @helper.form(action = routes.Wines.save()) {
     <div class="col-xs-12 col-sm-12">
         <div class="row row-content">
-        <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form">
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-10">
 
@@ -73,20 +73,17 @@
                                     </datalist>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="wineDescription" class="col-xs-12 col-sm-2 control-label">@Messages("wine.description")</label>
                             <div class="col-xs-12 col-sm-10">
                                 <textarea class="form-control" type="text" id="wineDescription" name="wineDescription" placeholder='@Messages("wine.description")'></textarea>
                             </div>
-
-
                         </div>
 
                     </div>  <!-- otter group form for name, description etc -->
 
                     <div class="col-xs-12 col-sm-2">
-
                         <div class="form-group">
                             <div class="col-xs-12 col-sm-12">
                                 <div class="panel">
@@ -104,52 +101,49 @@
                     </div>
                 </div>    <!-- outter form-group -->
 
-            <div class="form-group">
-                <label for="wineCeller" class="col-xs-12 col-sm-1 control-label">@Messages("wine.celler")</label>
-                <div class="col-xs-12 col-sm-5">
-                    <input class="form-control" type="text" id="wineCeller" name="wineCeller" placeholder='@Messages("wine.celler")'>
+                <div class="form-group">
+                    <label for="wineCeller" class="col-xs-12 col-sm-1 control-label">@Messages("wine.celler")</label>
+                    <div class="col-xs-12 col-sm-5">
+                        <input class="form-control" type="text" id="wineCeller" name="wineCeller" placeholder='@Messages("wine.celler")'>
+                    </div>
+
+                    <label for="wineVender" class="col-xs-12 col-sm-1 control-label">@Messages("wine.vender")</label>
+                    <div class="col-xs-12 col-sm-5">
+                        <input class="form-control" type="text" id="wineVender" name="wineVender" placeholder='@Messages("wine.vender")'>
+                    </div>
                 </div>
 
-                <label for="wineVender" class="col-xs-12 col-sm-1 control-label">@Messages("wine.vender")</label>
-                <div class="col-xs-12 col-sm-5">
-                    <input class="form-control" type="text" id="wineVender" name="wineVender" placeholder='@Messages("wine.vender")'>
-                </div>
-            </div>
+                <div class="form-group">
+                    <label for="wineDatePurchased" class="col-xs-12 col-sm-1 control-label">@Messages("wine.date.purchased")</label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control" type="text" id="wineDatePurchased" name="wineDatePurchased" placeholder='(yyyy-MM-dd)'>
+                    </div>
 
-            <div class="form-group">
-                <label for="wineDatePurchased" class="col-xs-12 col-sm-1 control-label">@Messages("wine.date.purchased")</label>
-                <div class="col-xs-12 col-sm-4">
-                    <input class="form-control" type="text" id="wineDatePurchased" name="wineDatePurchased" placeholder='(yyyy-MM-dd)'>
-                </div>
+                    <label for="wineDateOpened" class="col-xs-12 col-sm-1 control-label">@Messages("wine.date.opened")</label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control" type="text" id="wineDateOpened" name="wineDateOpened" placeholder='(yyyy-MM-dd)'>
+                    </div>
 
-                <label for="wineDateOpened" class="col-xs-12 col-sm-1 control-label">@Messages("wine.date.opened")</label>
-                <div class="col-xs-12 col-sm-4">
-                    <input class="form-control" type="text" id="wineDateOpened" name="wineDateOpened" placeholder='(yyyy-MM-dd)'>
-                </div>
-
-                <label for="wineAlcohol" class="col-xs-12 col-sm-1 control-label">@Messages("wine.alcohol")</label>
-                <div class="col-xs-12 col-sm-1">
-                    <input class="form-control" type="text" id="wineAlcohol" name="wineAlcohol" placeholder='0'>
+                    <label for="wineAlcohol" class="col-xs-12 col-sm-1 control-label">@Messages("wine.alcohol")</label>
+                    <div class="col-xs-12 col-sm-1">
+                        <input class="form-control" type="text" id="wineAlcohol" name="wineAlcohol" placeholder='0'>
+                    </div>
                 </div>
 
-
-            </div>
-            <div class="form-group">
-                <label for="wineComments" class="col-xs-12 col-sm-1 control-label">@Messages("wine.comments")</label>
-                <div class="col-xs-12 col-sm-11">
-                    <textarea class="form-control" type="text" id="wineComments" name="wineComments" placeholder='@Messages("wine.comments")'></textarea>
+                <div class="form-group">
+                    <label for="wineComments" class="col-xs-12 col-sm-1 control-label">@Messages("wine.comments")</label>
+                    <div class="col-xs-12 col-sm-11">
+                        <textarea class="form-control" type="text" id="wineComments" name="wineComments" placeholder='@Messages("wine.comments")'></textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-12 col-sm-2">
-                    <button type="submit" class="btn btn-primary">@Messages("wines.new.submit")</button>
-                </div>
-            </div>
-    </form>
 
+                <div class="form-group">
+                    <div class="col-xs-12 col-sm-2">
+                        <button type="submit" class="btn btn-primary">@Messages("wines.new.submit")</button>
+                    </div>
+                </div>
+            </form>
         </div>
-
-</div>
+    </div>
     }
-
 }
