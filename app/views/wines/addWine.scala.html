@@ -17,7 +17,7 @@
                                 <input class="form-control" type="text" id="wineName" name="wineName" placeholder='@Messages("wine.name")'>
                             </div>
 
-                            <label for="wineType" class="col-xs-12 col-sm-1 control-label">@Messages("wine.type")</label>
+                            <label for="wineType" class="col-xs-12 col-sm-1 control-label">@Messages("wine.type")<span style="color:red">*</span></label>
                             <div class="col-xs-12 col-sm-2">
                                 <select class="form-control" id="wineType" name="wineType">
                                     <option value="red">@Messages("wine.red")</option>
@@ -28,7 +28,7 @@
                                 </select>
                             </div>
 
-                            <label for="wineCountry" class="col-xs-12 col-sm-1 control-label">@Messages("wine.country")</label>
+                            <label for="wineCountry" class="col-xs-12 col-sm-1 control-label">@Messages("wine.country")<span style="color:red">*</span></label>
                             <div class="col-xs-12 col-sm-3">
                                 <input class="form-control" type="text" id="wineCountry" name="wineCountry" placeholder='@Messages("wine.country")' list="countries">
                                     <datalist id="countries">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="wineYear" class="col-xs-12 col-sm-1 control-label">@Messages("wine.year")</label>
+                            <label for="wineYear" class="col-xs-12 col-sm-1 control-label">@Messages("wine.year")<span style="color:red">*</span></label>
                             <div class="col-xs-12 col-sm-2">
                                 <input class="form-control" type="text" id="wineYear" name="wineYear" placeholder='@Messages("wine.year")' list="years">
                                     <datalist id="years" >
