@@ -16,3 +16,4 @@ URL on localhost
 
     git push heroku master
     
+    http://bodega-v2.herokuapp.com/wines
