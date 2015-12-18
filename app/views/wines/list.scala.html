@@ -3,28 +3,36 @@
 
 <div class="row row-content">
     <ul class="media-list">
-    <li class="media">
-       @for(wine <- wines) {
-        <div class="col-md-12">
-            <div class="media-left media-middle">
-                <a href="@controllers.routes.Wines.show(wine.wineId)">
-                    <img class="media-object img-thumbnail"
-                         src='@routes.Assets.at("images/wine-thmb.jpg")' alt="wine">
+        <li class="media">
+           @for(wine <- wines) {
+            <div class="col-xs-12 col-sm-11">
+                <div class="media-left media-middle">
+                    <a href="@controllers.routes.Wines.show(wine.wineId)">
+                        <img class="media-object img-thumbnail"
+                             src='@routes.Assets.at("images/wine-thmb.jpg")'
+                             title='@Messages("wine.tooltip.details")'>
+                    </a>
+                </div>
+                <div class="media-body">
+                   <div class="media-heading">
+                        <h2>@wine.wineName</h2>
+                        <span class="label label-info">@wine.wineYear</span>
+                        <span class="label label-danger">@wine.wineType</span>
+                        <span class="badge">@wine.winePrice Eur</span>
+                   </div>
+                    <p>@wine.wineCountry, @wine.wineDenomOrigin</p>
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-1">
+                <a href="@controllers.routes.Wines.deleteWine(wine.wineId)"
+                   title='@Messages("wine.tooltip.delete")' >
+                    <i class="fa fa-times fa-2x"></i>
                 </a>
             </div>
-            <div class="media-body">
-               <div class="media-heading">
-                    <h2>@wine.wineName</h2>
-                    <span class="label label-info">@wine.wineYear</span>
-                    <span class="label label-danger">@wine.wineType</span>
-                    <span class="badge">@wine.winePrice Eur</span>
-               </div>
-                <p>@wine.wineCountry, @wine.wineDenomOrigin</p>
-            </div>
-            <div class="col-md-12"><hr></div>
-        </div>
-        }
-    </li>
+            <div class="col-xs-12 col-sm-12"><hr></div>
+            }
+        </li>
     </ul>
 </div>
 

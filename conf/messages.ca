@@ -41,8 +41,9 @@ wine.name=Nom
 wine.color=Color
 wine.year=Any
 
-wine.tooltip.edit=Edit wine
-wine.tooltip.delete=Delete wine
+wine.tooltip.edit=Editar vino
+wine.tooltip.delete=Borrar vino
+wine.tooltip.details=Detalles
 
 wines.form=Detalles del vino
 wines.new=(nou)

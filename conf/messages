@@ -38,7 +38,7 @@ wine.date.last.modified=Last Updated
 
 wine.tooltip.edit=Edit wine
 wine.tooltip.delete=Delete wine
-
+wine.tooltip.details=Details
 
 wines.form=Wine Details
 wines.new=(new)
