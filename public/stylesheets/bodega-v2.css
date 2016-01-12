@@ -87,3 +87,6 @@ legend {
     border-bottom: 0px;
 }
 
+label {
+    font-size: 8pt;
+}
