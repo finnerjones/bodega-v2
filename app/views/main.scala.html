@@ -9,13 +9,23 @@
          content must come *after* these tags -->
 
     <title>@title</title>
+    <link rel="stylesheet" href='@routes.Assets.at("stylesheets/jquery-ui.css")'>
     <link rel="stylesheet" href='@routes.Assets.at("stylesheets/bootstrap-3-3-5.css")'>
-    <link rel="stylesheet" href='@routes.Assets.at("stylesheets/bootstrap-theme.min.css")'>
+    <link rel="stylesheet" href='@routes.Assets.at("stylesheets/bootstrap-theme-3-3-5.css")'>
     <link rel="stylesheet" href='@routes.Assets.at("stylesheets/font-awesome.min.css")'>
     <link rel="stylesheet" href='@routes.Assets.at("stylesheets/bootstrap-social.css")'>
     <link rel="stylesheet" href='@routes.Assets.at("stylesheets/bodega-v2.css")'>
+    <script src='@routes.Assets.at("javascripts/jquery-1.12.0.min.js")'></script>
+    <script src='@routes.Assets.at("javascripts/jquery-ui.js")'></script>
+    <script src='@routes.Assets.at("javascripts/bootstrap.min.js")'></script>
 
-
+    <script>
+      $(function() {
+        $( "#wineDateOpened" ).datepicker();
+      });
+     </script>
+    
+    
     <style>
 
 
@@ -189,13 +199,7 @@
                 </div>
             </div>
         </div>
-    </footer>
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src='@routes.Assets.at("javascripts/bootstrap.min.js")'></script>
+    </footer>   
 
 </body>
 </html>

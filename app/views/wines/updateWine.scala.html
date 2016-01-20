@@ -132,6 +132,9 @@
 
 <!--   End outter group col-md-10  -->
 
+        
+        
+        
 
                     <div class="form-group">
                         <div class="col-xs-12 col-md-1 text-right">
@@ -161,7 +164,13 @@
                             <label for="wineDateOpened">@Messages("wine.date.opened")</label>
                         </div>
                         <div class="col-xs-12 col-md-3">
-                            <input class="form-control" type="text" id="wineDateOpened" name="wineDateOpened" value='@wineForm("wineDateOpened").value'>
+                            <div class="input-group date">
+                                <input class="form-control" type="text" id="wineDateOpened"
+                                       name="wineDateOpened" value='@wineForm("wineDateOpened").value'>
+                                <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                            </div>
                         </div>
 
                         <div class="col-xs-12 col-md-1 text-right">
