@@ -7,47 +7,8 @@
 
 @helper.form(action = routes.Wines.update()) {
 
-    <div class="col-xs-12 col-sm-12">
+    <div class="col-xs-12 col-md-12">
         <input type="hidden" name="wineId" value='@wineForm.data("wineId")'>
-
-        <div class="row row-content">
-            <form class="form-horizontal" role="form">
-                <fieldset class="fsStyle">
-                    <legend class="legendStyle"><button type="submit" class="btn btn-link" title='@Messages("wines.update.submit")'><i class="fa fa-floppy-o fa-2x"></i></button></legend>
-                    <div class="form-group">
-                        <div class="col-xs-12 col-md-10">
-
-
-
-
-
-                        </div>  <!-- otter group form for name, description etc -->
-
-                        <div class="col-xs-12 col-md-2">
-                            <div class="form-group">
-                                <div class="col-xs-12 col-md-12">
-                                    <div class="panel">
-                                        <div class="panel-heading">
-                                            <button type="file" name="changephoto" class="btn btn-primary">Change..</button>
-                                        </div>
-                                        <div class="panel-body">
-                                            <img class="media-object img-thumbnail"
-                                                 src='@routes.Assets.at("images/wine-thmb.jpg")' alt="wine">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>    <!-- outter form-group -->
-
-
-
-                </fieldset>
-
-            </form>
-        </div>
-
 
         <div class="row row-content">
             <form class="form-horizontal">
@@ -56,7 +17,11 @@
 
 
     <!--   needs an outter form-group of col-md-10  -->
-
+          <div class="form-group">   
+              <div class="col-xs-12 col-md-10">
+                      
+                      
+                      
                     <div class="form-group">
                         <div class="col-xs-12 col-md-1">
                             <label for="wineName">@Messages("wine.name")<span style="color:red">*</span></label>
@@ -145,8 +110,25 @@
                     </div>
 
 
-
-
+              </div>  <!-- end col-md-10 -->
+            
+              <div class="col-xs-12 col-md-2">
+                <div class="form-group">
+                    <div class="col-xs-12 col-md-12">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <button type="file" name="changephoto" class="btn btn-primary">Change..</button>
+                            </div>
+                            <div class="panel-body">
+                                <img class="media-object img-thumbnail"
+                                     src='@routes.Assets.at("images/wine-thmb.jpg")' alt="wine">
+                                </div>
+                        </div>
+                    </div>
+                </div>                
+              </div>
+            
+            </div>  <!-- end outter form group -->
 
 <!--   End outter group col-md-10  -->
 
