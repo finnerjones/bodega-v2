@@ -5,46 +5,51 @@
 @main(Messages("wines.form")) {
 
     @helper.form(action = routes.Wines.save()) {
+
+<div class="container">
+    <form data-toggle="validator" class="form-horizontal" >
         <div class="row">
-            <form data-toggle="validator" class="form-horizontal" >
-                <!--  Name  -->
+            <!--  Name  -->
+            <div class="col-xs-12 col-md-4">    
                 <div class="form-group">
-                    <div class="col-xs-12 col-md-4">    
-                        <label for="wineName">@Messages("wine.name")<span style="color:red">*</span></label>
-                        <input class="form-control" type="text" id="wineName" name="wineName" placeholder='@Messages("wine.name")'>
-                    </div>
+                    <label for="wineName">@Messages("wine.name")<span style="color:red">*</span></label>
+                    <input class="form-control" type="text" id="wineName" name="wineName" placeholder='@Messages("wine.name")'>
                 </div>
+            </div>
 
 
+            <!-- country -->
+            <div class="col-xs-12 col-md-4">    
                 <div class="form-group">
-                    <div class="col-xs-12 col-md-4">    
-                        <label for="wineCountry" >@Messages("wine.country")<span style="color:red">*</span></label>
-                        <input class="form-control" type="text" id="wineCountry" 
-                           name="wineCountry" placeholder='@Messages("wine.country")' list="countries">
-                        <datalist id="countries">
-                            @for(country <- countries) {
-                              <option>@country</option>
-                            }
-                        </datalist>
-                    </div>
-                </div>                
-                
-                
-                <!-- Type  -->
-                <div class="form-group">
-                    <div class="col-xs-12 col-md-4">    
-                        <label for="wineType">@Messages("wine.type")<span style="color:red">*</span></label>
-                        <select class="form-control" id="wineType" name="wineType">
-                            <option value="red">@Messages("wine.red")</option>
-                            <option value="white">@Messages("wine.white")</option>
-                            <option value="rose">@Messages("wine.rose")</option>
-                            <option value="cava">@Messages("wine.cava")</option>
-                            <option value="champagne">@Messages("wine.champagne")</option>
-                        </select>
-                    </div>
+                    <label for="wineCountry" >@Messages("wine.country")<span style="color:red">*</span></label>
+                    <input class="form-control" type="text" id="wineCountry" 
+                       name="wineCountry" placeholder='@Messages("wine.country")' list="countries">
+                    <datalist id="countries">
+                        @for(country <- countries) {
+                          <option>@country</option>
+                        }
+                    </datalist>
                 </div>
+            </div>                
 
-            </form>
-        </div>
+
+            <!-- Type  -->
+            <div class="col-xs-12 col-md-4">    
+                <div class="form-group">
+                    <label for="wineType">@Messages("wine.type")<span style="color:red">*</span></label>
+                    <select class="form-control" id="wineType" name="wineType">
+                        <option value="red">@Messages("wine.red")</option>
+                        <option value="white">@Messages("wine.white")</option>
+                        <option value="rose">@Messages("wine.rose")</option>
+                        <option value="cava">@Messages("wine.cava")</option>
+                        <option value="champagne">@Messages("wine.champagne")</option>
+                    </select>
+                </div>
+            </div>   
+        </div>    <!-- end row 1  -->
+        
+        
+    </form>
+</div>
     }
 }
