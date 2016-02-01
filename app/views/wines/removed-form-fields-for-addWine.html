@@ -2,96 +2,15 @@
                 
                 
 
-                        <div class="form-group">
-                            <label for="wineYear" class="col-xs-12 col-sm-1 control-label">@Messages("wine.year")<span style="color:red">*</span></label>
-                            <div class="col-xs-12 col-sm-2">
-                                <input class="form-control" type="text" id="wineYear" name="wineYear" placeholder='@Messages("wine.year")' list="years">
-                                    <datalist id="years" >
-                                        @for(year <- years) {
-                                        <option>@year</option>
-                                        }
-                                    </datalist>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="wineDenomOrigin" class="col-xs-12 col-sm-2 control-label">@Messages("wine.do")</label>
-                            <div class="col-xs-12 col-sm-4">
-                                <input class="form-control" type="text" id="wineDenomOrigin" name="wineDenomOrigin" placeholder='@Messages("wine.do")'>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="winePrice" class="col-xs-12 col-sm-1 control-label">@Messages("wine.price")</label>
-                            <div class="col-xs-12 col-sm-2">
-                                <input class="form-control" type="text" id="winePrice" name="winePrice" placeholder='0.0'>
-                            </div>
-                        </div>
 
-                        <! - - http://en.wikipedia.org/wiki/List_of_grape_varieties  - - >
-                        <div class="form-group">
-                            <label for="wineGrapes" class="col-xs-12 col-sm-1 control-label">@Messages("wine.grapes")</label>
-                            <div class="col-sm-11">
-                                <input class="form-control" type="text" id="wineGrapes" name="wineGrapes" placeholder='@Messages("wine.grapes")' list="grapes">
-                                    <datalist id="grapes">
-                                        @for(grape <- grapes) {
-                                          <option>@grape</option>
-                                        }
-                                    </datalist>
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="wineDescription" class="col-xs-12 col-sm-2 control-label">@Messages("wine.description")</label>
-                            <div class="col-xs-12 col-sm-10">
-                                <textarea class="form-control" type="text" id="wineDescription" name="wineDescription" placeholder='@Messages("wine.description")'></textarea>
-                            </div>
-                        </div>
                 
-                <div class="form-group">
-                    <label for="wineCeller" class="col-xs-12 col-sm-1 control-label">@Messages("wine.celler")</label>
-                    <div class="col-xs-12 col-sm-5">
-                        <input class="form-control" type="text" id="wineCeller" name="wineCeller" placeholder='@Messages("wine.celler")'>
-                    </div>
-                </div>
-                <div class="form-group">                    
-                    <label for="wineVender" class="col-xs-12 col-sm-1 control-label">@Messages("wine.vender")</label>
-                    <div class="col-xs-12 col-sm-5">
-                        <input class="form-control" type="text" id="wineVender" name="wineVender" placeholder='@Messages("wine.vender")'>
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="wineDatePurchased" class="col-xs-12 col-sm-1 control-label">@Messages("wine.date.purchased")</label>
-                    <div class="col-xs-12 col-sm-4">
-                        <input class="form-control" type="text" id="wineDatePurchased" name="wineDatePurchased" 
-                               pattern="^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$" 
-                               data-error="Format is yyyy-MM-dd"
-                               placeholder='yyyy-MM-dd'>
-                    </div>
-                </div>
                 <div class="form-group">
     
-                    <label for="wineDateOpened" class="col-xs-12 col-sm-1 control-label">@Messages("wine.date.opened")</label>
-                    <div class="col-xs-12 col-sm-4">
-                        <input class="form-control" type="text" id="wineDateOpened" name="wineDateOpened" placeholder='(yyyy-MM-dd)'>
-                    </div>
 
-                    <label for="wineAlcohol" class="col-xs-12 col-sm-1 control-label">@Messages("wine.alcohol")</label>
-                    <div class="col-xs-12 col-sm-1">
-                        <input class="form-control" type="text" id="wineAlcohol" name="wineAlcohol" placeholder='0'>
-                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="wineComments" class="col-xs-12 col-sm-1 control-label">@Messages("wine.comments")</label>
-                    <div class="col-xs-12 col-sm-11">
-                        <textarea class="form-control" type="text" id="wineComments" name="wineComments" placeholder='@Messages("wine.comments")'></textarea>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-xs-12 col-sm-2">
-                        <button type="submit" class="btn btn-primary">@Messages("wines.new.submit")</button>
-                    </div>
-                </div>
+ 
 
    End commented code -->
