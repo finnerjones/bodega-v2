@@ -7,10 +7,10 @@
     @helper.form(action = routes.Wines.save()) {
 
 <div class="container">
-    <form data-toggle="validator" class="form-horizontal" role="form" >
+    <form class="form-horizontal" role="form" >
     <fieldset class="fsStyle">
         <legend class="legendStyle">
-            <button type="submit" class="btn btn-link" title='@Messages("wines.new.submit")'><i class="fa fa-floppy-o fa-2x"></i></button> 
+            <button type="submit" class="btn btn-link" title='@Messages("wines.new.submit")' ><i class="fa fa-floppy-o fa-2x"></i></button> 
         </legend>        
 
         <div class="row">
@@ -22,7 +22,8 @@
                     <div class="col-xs-12 col-md-4">    
                         <div class="form-group">
                             <label for="wineName">@Messages("wine.name")<span style="color:red">*</span></label>
-                            <input class="form-control" type="text" id="wineName" name="wineName" placeholder='@Messages("wine.name")'>
+                            <input class="form-control" type="text" id="wineName" name="wineName" 
+                                   placeholder='@Messages("wine.name")' required>
                         </div>
                     </div>
 
@@ -32,7 +33,7 @@
                         <div class="form-group">
                             <label for="wineCountry" >@Messages("wine.country")<span style="color:red">*</span></label>
                             <input class="form-control" type="text" id="wineCountry" 
-                               name="wineCountry" placeholder='@Messages("wine.country")' list="countries">
+                               name="wineCountry" placeholder='@Messages("wine.country")' list="countries" required>
                             <datalist id="countries">
                                 @for(country <- countries) {
                                   <option>@country</option>
@@ -55,7 +56,7 @@
                     <div class="col-xs-12 col-md-3">    
                         <div class="form-group">
                             <label for="wineType">@Messages("wine.type")<span style="color:red">*</span></label>
-                            <select class="form-control" id="wineType" name="wineType">
+                            <select class="form-control" id="wineType" name="wineType" required>
                                 <option value="red">@Messages("wine.red")</option>
                                 <option value="white">@Messages("wine.white")</option>
                                 <option value="rose">@Messages("wine.rose")</option>
@@ -71,8 +72,9 @@
                     <div class="col-xs-12 col-md-2">
                         <div class="form-group">
                             <label for="wineYear" >@Messages("wine.year")<span style="color:red">*</span></label>
-                            <input class="form-control" type="text" id="wineYear" name="wineYear" placeholder='@Messages("wine.year")'
-                                   list="years">
+                            <input class="form-control" type="number" min="1900" max="2050" value="2012" 
+                                   id="wineYear" name="wineYear" placeholder='@Messages("wine.year")'
+                                   list="years" required>
                                 <datalist id="years" >
                                     @for(year <- years) {
                                         <option>@year</option>
@@ -168,10 +170,8 @@
             <div class="col-xs-12 col-md-2">
                 <div class="form-group">
                     <label for="wineDatePurchased" class="col-xs-12 col-sm-1 control-label">@Messages("wine.date.purchased")</label>
-                    <input class="form-control" type="text" id="wineDatePurchased" name="wineDatePurchased" 
-                               pattern="^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$" 
-                               data-error="Format is yyyy-MM-dd"
-                               placeholder='yyyy-MM-dd'>
+                    <input class="form-control" type="date" id="wineDatePurchased" name="wineDatePurchased" 
+                               placeholder='yyyy-mm-dd' pattern="\d{4}-\d{1,2}-\d{1,2}">
                 </div>
             </div>
             
