@@ -28,7 +28,9 @@
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
                                 <label for="wineName">@Messages("wine.name")<span style="color:red">*</span></label>
-                                <input class="form-control" type="text" id="wineName" name="wineName" value='@wineForm("wineName").value'>
+                                <input class="form-control" type="text" id="wineName" 
+                                       placeholder='@Messages("wine.name")'
+                                       name="wineName" value='@wineForm("wineName").value' required>
                             </div>
                         </div>
                         
@@ -37,8 +39,9 @@
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">                            
                                 <label for="wineCountry">@Messages("wine.country")<span style="color:red">*</span></label>
-                                <input class="form-control" type="text" id="wineCountry" 
-                                   name="wineCountry" value='@wineForm("wineCountry").value' list="countries">
+                                <input class="form-control" type="text" id="wineCountry"
+                                        placeholder='@Messages("wine.country")'
+                                        name="wineCountry" value='@wineForm("wineCountry").value' list="countries" required>
                                     <datalist id="countries">
                                         @for(country <- countries) {
                                             <option>@country</option>
@@ -52,7 +55,8 @@
                         <div class="col-xs-12 col-md-1">
                             <div class="form-group">                            
                                 <label for="wineAlcohol" >@Messages("wine.alcohol")</label>
-                                <input class="form-control" type="text" id="wineAlcohol" 
+                                <input class="form-control" type="text" id="wineAlcohol"
+                                       placeholder="0.0" pattern="^\d{4}.\d{1,2}$"
                                        name="wineAlcohol" value='@wineForm("wineAlcohol").value'>
                             </div>
                         </div>
@@ -63,7 +67,9 @@
                         <div class="col-xs-12 col-md-3">
                             <div class="form-group">
                                 <label for="wineType">@Messages("wine.type")<span style="color:red">*</span></label>
-                                <select class="form-control" id="wineType" name="wineType" value='@wineForm("wineType").value'>
+                                <select class="form-control" id="wineType" 
+                                        placeholder='@Messages("wine.type")'
+                                        name="wineType" value='@wineForm("wineType").value' required>
                                     <option value="red">@Messages("wine.red")</option>
                                     <option value="white">@Messages("wine.white")</option>
                                     <option value="rose">@Messages("wine.rose")</option>
@@ -84,8 +90,9 @@
                         <div class="col-xs-12 col-md-2">
                             <div class="form-group">
                                 <label for="wineYear">@Messages("wine.year")<span style="color:red">*</span></label>
-                                <input class="form-control" type="text" id="wineYear" 
-                                       name="wineYear" value='@wineForm("wineYear").value' list="years">
+                                <input class="form-control" type="text" id="wineYear"
+                                       placeholder='@Messages("wine.year")'
+                                       name="wineYear" value='@wineForm("wineYear").value' list="years" required>
                                     <datalist id="years" >
                                         @for(year <- years) {
                                             <option>@year</option>
@@ -99,7 +106,8 @@
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
                                 <label for="wineDenomOrigin">@Messages("wine.do")</label>
-                                <input class="form-control" type="text" id="wineDenomOrigin" 
+                                <input class="form-control" type="text" id="wineDenomOrigin"
+                                       placeholder='@Messages("wine.do")'
                                        name="wineDenomOrigin" value='@wineForm("wineDenomOrigin").value'>
                             </div>
                         </div>
@@ -110,6 +118,7 @@
                             <div class="form-group">
                                 <label for="winePrice">@Messages("wine.price")</label>
                                 <input class="form-control" type="text" id="winePrice" 
+                                       placeholder='0.0' pattern="^\d+(.\d{1,2})?$"
                                        name="winePrice" value='@wineForm("winePrice").value'>
                             </div>
                         </div>
@@ -121,6 +130,7 @@
                                 <label for="wineGrapes">@Messages("wine.grapes")</label>
                                 <!-- http://en.wikipedia.org/wiki/List_of_grape_varieties  -->
                                 <input class="form-control" type="text" id="wineGrapes" 
+                                       placeholder='@Messages("wine.grapes")'
                                        name="wineGrapes" value='@wineForm("wineGrapes").value' list="grapes">
                                     <datalist id="grapes">
                                         @for(grape <- grapes) {
@@ -139,7 +149,7 @@
                             <div class="form-group">
                                 <label for="wineDescription">@Messages("wine.description")</label>
                                 <textarea class="form-control" type="text" id="wineDescription" 
-                                          name="wineDescription"
+                                          name="wineDescription" placeholder='@Messages("wine.description")'
                                           value='@wineForm("wineDescription").value'>@wineForm("wineDescription").value</textarea>
                             </div>
                         </div>
@@ -179,7 +189,9 @@
                 <div class="col-xs-12 col-md-4">
                     <div class="form-group">
                         <label for="wineCellar">@Messages("wine.celler")</label>
-                        <input class="form-control" type="text" id="wineCellar" name="wineCellar" value='@wineForm("wineCellar").value'>
+                        <input class="form-control" type="text" id="wineCellar" 
+                               placeholder='@Messages("wine.celler")'
+                               name="wineCellar" value='@wineForm("wineCellar").value'>
                     </div>
                 </div>
 
@@ -187,7 +199,9 @@
                 <div class="col-xs-12 col-md-4">
                     <div class="form-group">
                         <label for="wineVender" >@Messages("wine.vender")</label>
-                        <input class="form-control" type="text" id="wineVender" name="wineVender" value='@wineForm("wineVender").value'>
+                        <input class="form-control" type="text" id="wineVender"
+                               placeholder='@Messages("wine.vender")'
+                               name="wineVender" value='@wineForm("wineVender").value'>
                     </div>
                 </div>
                 
@@ -196,7 +210,8 @@
                     <div class="form-group">
                         <label for="wineDatePurchased">@Messages("wine.date.purchased")</label>
                         <input class="form-control" type="text" id="wineDatePurchased" 
-                               name="wineDatePurchased" value='@wineForm("wineDatePurchased").value'>
+                               name="wineDatePurchased" value='@wineForm("wineDatePurchased").value'
+                               placeholder='yyyy-mm-dd' pattern="^\d{4}-\d{1,2}-\d{1,2}$">
                     </div>
                 </div>
                 
@@ -205,7 +220,8 @@
                     <div class="form-group">
                         <label for="wineDateOpened">@Messages("wine.date.opened")</label>
                         <input class="form-control" type="text" id="wineDateOpened"
-                       name="wineDateOpened" value='@wineForm("wineDateOpened").value'>
+                       name="wineDateOpened" value='@wineForm("wineDateOpened").value'
+                               placeholder='yyyy-mm-dd' pattern="^\d{4}-\d{1,2}-\d{1,2}$">
                     </div>
                 </div>
                                
@@ -220,6 +236,7 @@
                     <div class="form-group">
                             <label for="wineComments">@Messages("wine.comments")</label>
                             <textarea class="form-control" type="text" id="wineComments" 
+                                      placeholder='@Messages("wine.comments")'
                                       name="wineComments" value='@wineForm("wineComments").value'>@wineForm("wineComments").value</textarea>
                     </div>
                 </div>

@@ -44,17 +44,18 @@
 
 
                     <!-- alcohol -->
-                    <div class="col-xs-12 col-md-1">
+                    <div class="col-xs-12 col-md-2">
                         <div class="form-group">                    
                             <label for="wineAlcohol">@Messages("wine.alcohol")</label>
-                            <input class="form-control" type="text" id="wineAlcohol" name="wineAlcohol" placeholder='0'>
+                            <input class="form-control" type="text" id="wineAlcohol" name="wineAlcohol" 
+                                   placeholder="0.0" pattern="^\d+.\d{1,2}$">
                         </div>
                     </div>
 
 
 
                     <!-- Type  -->
-                    <div class="col-xs-12 col-md-3">    
+                    <div class="col-xs-12 col-md-2">    
                         <div class="form-group">
                             <label for="wineType">@Messages("wine.type")<span style="color:red">*</span></label>
                             <select class="form-control" id="wineType" name="wineType" required>
@@ -98,7 +99,8 @@
                     <div class="col-xs-12 col-md-2">
                         <div class="form-group">
                             <label for="winePrice">@Messages("wine.price")</label>
-                            <input class="form-control" type="text" id="winePrice" name="winePrice" placeholder='0.0'>
+                            <input class="form-control" type="text" id="winePrice" name="winePrice" 
+                                   placeholder='0.0' pattern="^\d+(.\d{1,2})?$">
                         </div>
                     </div>
 
@@ -189,7 +191,8 @@
             <div class="col-xs-12 col-md-2">
                 <div class="form-group">                    
                     <label for="wineDateOpened">@Messages("wine.date.opened")</label>
-                    <input class="form-control" type="text" id="wineDateOpened" name="wineDateOpened" placeholder='(yyyy-MM-dd)'>
+                    <input class="form-control" type="text" id="wineDateOpened" name="wineDateOpened" 
+                           placeholder='yyyy-mm-dd' pattern="\d{4}-\d{1,2}-\d{1,2}">
                 </div>
             </div>
 
