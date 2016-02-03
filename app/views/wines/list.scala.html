@@ -22,12 +22,12 @@
                         </div>
 
                         <div class="modal-body">
-                          <p>Are you sure you want to delete @wine.wineName ?</p>
+                            <p>Are you sure you want to delete <strong>@wine.wineName</strong> ?</p>
 
                         </div>
                         <div class="modal-footer">
-                            <a href="@controllers.routes.Wines.deleteWine(wine.wineId)" id="btnYes" class="btn danger">Yes</a>
-                            <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">No</a>
+                            <a href="@controllers.routes.Wines.deleteWine(wine.wineId)" id="btnYes" class="btn btn-danger">Yes</a>
+                            <a href="#" data-dismiss="modal" aria-hidden="true" class="btn btn-primary">No</a>
                         </div>                
 
                     </div>
