@@ -1,17 +1,47 @@
 @(wines: List[Wine])(implicit flash: Flash, lang: Lang)
 @main(Messages("application.name")) {
 
+
 <div class="row row-content">
+        
     <ul class="media-list">
         <li class="media">
            @for(wine <- wines) {
+    
+        
+            <div id="confirmDelete@wine.wineId" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Confirm Delete</h4>
+
+                        </div>
+
+                        <div class="modal-body">
+                          <p>Are you sure you want to delete @wine.wineName ?</p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <a href="@controllers.routes.Wines.deleteWine(wine.wineId)" id="btnYes" class="btn danger">Yes</a>
+                            <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">No</a>
+                        </div>                
+
+                    </div>
+                </div>    
+            </div>
+                        
+                        
             <div class="col-xs-12 col-sm-11">
                 <div class="media-left media-middle">
                     <a href="@controllers.routes.Wines.show(wine.wineId)">
                         <img class="media-object img-thumbnail"
                              src='@routes.Assets.at("images/wine-thmb.jpg")'
                              title='@Messages("wine.tooltip.details")'>
-                    </a>
+                    </a>    
                 </div>
                 <div class="media-body">
                    <div class="media-heading">
@@ -24,7 +54,8 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-1">
-                <a href="@controllers.routes.Wines.deleteWine(wine.wineId)"
+                <a href="#"
+                   data-toggle="modal" data-target="#confirmDelete@wine.wineId"
                    title='@Messages("wine.tooltip.delete")' >
                     <i class="fa fa-times fa-2x"></i>
                 </a>
