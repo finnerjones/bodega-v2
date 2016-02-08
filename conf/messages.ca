@@ -11,14 +11,14 @@ application.wine.denomination=Denominació
 application.wine.description=Descripció
 application.wine.price=Precio
 application.wine.cellar=Bodega
-application.wine.datePurchased=Fecha de Compra
-application.wine.dateOpened=Fecha de consumir
-application.wine.tooltip.add=Añadir un vino nuevo
-application.wine.tooltip.list=Lista de vinos
+application.wine.datePurchased=Data de Compra
+application.wine.dateOpened=Data de consumir
+application.wine.tooltip.add=Afegir un vi nou
+application.wine.tooltip.list=Llistat de vins
 
 select.option.select=-- Eligir --
 
-wine.details=Detalles
+wine.details=Detalls
 wine.name=Nom
 wine.type=Tipo
 wine.year=Any
@@ -33,19 +33,19 @@ wine.alcohol=Vol %
 wine.date.purchased=Comprado
 wine.date.opened=Consumado
 wine.comments=Commentari
-wine.date.inserted=Añadido
-wine.date.last.modified=Modificado
+wine.date.inserted=Afegit
+wine.date.last.modified=Modificat
 
 wine.details=Detalls
 wine.name=Nom
 wine.color=Color
 wine.year=Any
 
-wine.tooltip.edit=Editar vino
-wine.tooltip.delete=Borrar vino
-wine.tooltip.details=Detalles
+wine.tooltip.edit=Edita vi
+wine.tooltip.delete=Esborrar vi
+wine.tooltip.details=Detalls
 
-wines.form=Detalles del vino
+wines.form=Detalls del vi
 wines.new=(nou)
 wines.new.command=Añadir
 wines.new.submit=Añadir

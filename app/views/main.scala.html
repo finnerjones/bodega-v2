@@ -16,7 +16,10 @@
     <link rel="stylesheet" href='@routes.Assets.at("stylesheets/bodega-v2.css")'>
     <script src='@routes.Assets.at("javascripts/jquery-1.12.0.min.js")'></script>
     <script src='@routes.Assets.at("javascripts/bootstrap.min.js")'></script>
-    <script src='@routes.Assets.at("javascripts/validator.js")'></script>    
+    <script src='@routes.Assets.at("javascripts/bodega.v2.js")'></script>    
+    
+    
+    
     
 
 
@@ -49,7 +52,25 @@
                             <span class="glyphicon glyphicon-plus"> </span>
                         </a>
                     </li>
+                                                            
+                
                 </ul>
+                                
+                <ul class="nav navbar-nav"> 
+                    <form class="change-locale navbar-form" method="POST" action="/locale">
+                        @defining("images/" + l.code + ".png"){ fname => 
+                            <img src='@routes.Assets.at(fname)' alt="en.png">
+                        }
+                        <select class="form-control btn btn-secondary" onchange="this.form.submit()" name="locale">
+                            <option value="en" @(if(l.code == "en") "selected")>@Messages("lang.en")</option>
+                            <option value="es" @(if(l.code == "es") "selected")>@Messages("lang.es")</option>
+                            <option value="ca" @(if(l.code == "ca") "selected")>@Messages("lang.ca")</option>
+                        </select>
+                        
+                    </form>
+                </ul>
+                
+                
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <form class="navbar-form" role="search">
@@ -133,6 +154,8 @@
                 </div>
             </div>
         </div>
+        
+        
     </footer>   
 
 </body>

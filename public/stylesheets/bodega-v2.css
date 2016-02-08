@@ -83,3 +83,14 @@ legend {
     border-bottom: 0px;    
 }
 
+english {
+    background-image: url(../images/vineyard-banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+spanish {
+    background-image: url(../images/vineyard-banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
